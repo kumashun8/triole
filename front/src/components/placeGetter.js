@@ -4,7 +4,7 @@ import axios from 'axios';
 class PlaceGetter extends React.Component {
   getFromAPI = async () => {
     try {
-      const result = await axios.get(`${"https://api.github.com/users"}/8810KMKM`);
+      const result = await axios.get('http://localhost:3001/place');
       console.log(result);
     } catch (error) {
       console.log(error);
