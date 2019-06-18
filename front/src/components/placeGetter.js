@@ -5,7 +5,7 @@ class PlaceGetter extends React.Component {
   getFromAPI = async () => {
     try {
       const result = await axios.get('http://localhost:3001/place');
-      console.log(result);
+      console.log(result.data.result);
     } catch (error) {
       console.log(error);
     }
