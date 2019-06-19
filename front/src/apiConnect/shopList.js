@@ -1,10 +1,11 @@
 import axios from 'axios';
 
-const shopList = async (input="サンセット") => {
+const shopList = async (input) => {
+  if(!input.trim()) 
   try {
     const uri = 'http://localhost:3001/place/' + input;
     const res = await axios.get(uri);
-    return res.data.predictions
+    return res.data.predictions;
   } catch (error) {
     console.log(error);
     return {}

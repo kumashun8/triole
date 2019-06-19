@@ -12,6 +12,9 @@ class ShopSearchInput extends React.Component {
         <form
           onChange={e => {
             e.preventDefault()
+            if (!input.value.trim()) {
+              return
+            }
             dispatchSearchingShop(input.value)
           }}
         >
@@ -21,12 +24,15 @@ class ShopSearchInput extends React.Component {
             }}
           />
         </form>
+        <div>
+          <legend>{this.shopList}</legend>
+        </div>
       </div>
     )
   }
 }
 
 export default connect(
-  state => ({ shopList: state.shopList })
+  state => ({ shopList: state.shopList }),
   dispatch => ({dispatchSearchingShop: text => dispatch(searchingShop(text))})
 )(ShopSearchInput)

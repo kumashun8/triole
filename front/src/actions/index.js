@@ -1,4 +1,4 @@
-export const searchingShop = text => ({
+export const searchingShop = (text) => ({
   type: 'SEARCHING_SHOP',
   text
 })
