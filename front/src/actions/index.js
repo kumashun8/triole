@@ -3,12 +3,12 @@ export const searchingShop = text => ({
   text
 })
 
-export const chooseShop = id => ({
+export const chooseShop = listId => ({
   type: 'CHOOSE_SHOP',
-  id
+  listId
 })
 
-export const saveShop = placeid => ({
+export const saveShop = placeId => ({
   type: 'SAVE_SHOP',
-  placeid
+  placeId
 })
