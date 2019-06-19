@@ -1,16 +1,21 @@
 import React from 'react'
 import Shop from './Shop'
+import PropTypes from 'prop-types';
 
-class ShopList extends React.Component {
-  render() {
-    return (
-      <ul>
-        {this.props.shopList.map((shop, index) => (
-          <Shop name={this.props.description} />
-        ))}
-      </ul>
-    );
-  }
+const ShopList = (shops) => (
+  <ul>
+    {shops.map((shop, index) => (
+      <Shop key={index} name={shop.description}/>
+    ))}
+  </ul>
+)
+
+ShopList.propTypes = {
+  shops: PropTypes.arrayOf(
+    PropTypes.shape({
+      description: PropTypes.string.isRequired
+    }).isRequired
+  ).isRequired
 }
 
 export default ShopList
