@@ -3,7 +3,12 @@ export const searchingShop = text => ({
   text
 })
 
-export const toggleShop = id => ({
-  type: 'TOGGLE_SHOP',
+export const chooseShop = id => ({
+  type: 'CHOOSE_SHOP',
   id
+})
+
+export const saveShop = placeid => ({
+  type: 'SAVE_SHOP',
+  placeid
 })
