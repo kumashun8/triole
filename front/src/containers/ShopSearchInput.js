@@ -1,12 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { searchingShop } from '../actions'
+import { getShopList } from '../actions'
 
 class ShopSearchInput extends React.Component {
 
   render() {
     let input
-    const { dispatchSearchingShop } = this.props;
+    const { dispatchGetShopList } = this.props;
     return (
       <div>
         <form
@@ -15,7 +15,7 @@ class ShopSearchInput extends React.Component {
             if (!input.value.trim()) {
               return
             }
-            dispatchSearchingShop(input.value)
+            dispatchGetShopList(input.value)
           }}
         >
           <input
@@ -24,15 +24,12 @@ class ShopSearchInput extends React.Component {
             }}
           />
         </form>
-        <div>
-          <legend>{this.shopList}</legend>
-        </div>
       </div>
     )
   }
 }
 
 export default connect(
-  state => ({ shopList: state.shopList }),
-  dispatch => ({dispatchSearchingShop: text => dispatch(searchingShop(text))})
+  state => ({state: state}),
+  dispatch => ({dispatchGetShopList: text => dispatch(getShopList(text))})
 )(ShopSearchInput)

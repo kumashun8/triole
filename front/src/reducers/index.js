@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import searchWord from './searchWord'
+import shopList from './shopList'
 
 export default combineReducers({
-  searchWord
+  shopList
 })

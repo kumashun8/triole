@@ -2,10 +2,10 @@ import React from 'react'
 import Shop from './Shop'
 import PropTypes from 'prop-types';
 
-const ShopList = (shops) => (
+const ShopList = ({ shops }) => (
   <ul>
     {shops.map((shop, index) => (
-      <Shop key={index} name={shop.description}/>
+      <Shop key={index} {...shop}  />
     ))}
   </ul>
 )
@@ -13,7 +13,11 @@ const ShopList = (shops) => (
 ShopList.propTypes = {
   shops: PropTypes.arrayOf(
     PropTypes.shape({
-      description: PropTypes.string.isRequired
+      structured_formatting: PropTypes.shape({
+        main_text: PropTypes.string.isRequired,
+        secondary_text: PropTypes.string.isRequired
+      }).isRequired,
+      place_id: PropTypes.string.isRequired
     }).isRequired
   ).isRequired
 }
