@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
   get '/place/:input', to: 'place_api#show'
-  resources :shops
+  namespace 'api' do
+    namespace 'v1' do
+      resources :shops
+    end
+  end
 end
