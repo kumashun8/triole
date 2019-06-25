@@ -1,10 +1,6 @@
 module Api
   module V1
     class ShopsController < ApplicationController
-      require 'net/http'
-      require 'uri'
-      require 'json'
-
       def index
         @shops = Shop.all
         render json: @shops
@@ -16,6 +12,7 @@ module Api
       end
     
       def search
+        
         @shop_list = []
     
         if params[:text]
@@ -33,7 +30,7 @@ module Api
       private
     
         def shop_params
-          params.require(:shop).permit(:name. :googlemap_link)
+          params.require(:shop).permit(:name, :googlemap_link)
         end
       
     end

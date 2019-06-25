@@ -25,7 +25,7 @@ export const requestIsNotExist = () => ({
 export const getShopList = (text) => {
   return (dispatch) => {
     dispatch(getShopListRequest())
-    return axios.get(process.env.REACT_APP_API_URI + '/place/' + text)
+    return axios.get(process.env.REACT_APP_API_URI + '/api/v1/search/' + text)
       .then(res => {
         console.log(res.data.predictions)
         dispatch(getShopListSuccess(res.data.predictions))
