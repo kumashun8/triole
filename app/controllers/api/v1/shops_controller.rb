@@ -16,7 +16,18 @@ module Api
       end
     
       def search
-        
+        @shop_list = []
+    
+        if params[:text]
+          uuid = SecureRandom.uuid
+          request = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=" + params[:text] + "&types=establishment&location=34.68291,134.87708&language=ja&radius=1000000&strictbounds&types=establishment&key=" + ENV['API_KEY'] + "&sessiontoken=" + uuid
+          uri = URI.encode(request)
+          uri = URI.parse(uri)
+          response = Net::HTTP.post_form(uri, {})
+          @shop_list = response.body
+        end
+    
+        render json: @shop_list
       end
 
       private
