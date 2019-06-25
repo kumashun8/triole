@@ -1,6 +1,10 @@
 module Api
   module V1
     class ShopsController < ApplicationController
+      require 'net/http'
+      require 'uri'
+      require 'json'
+
       def index
         @shops = Shop.all
         render json: @shops
@@ -11,6 +15,10 @@ module Api
         render json: @shop
       end
     
+      def search
+        
+      end
+
       private
     
         def shop_params
