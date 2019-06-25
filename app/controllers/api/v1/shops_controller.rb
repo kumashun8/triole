@@ -11,8 +11,7 @@ module Api
         render json: @shop
       end
     
-      def search
-        
+      def search   
         @shop_list = []
     
         if params[:text]
@@ -25,6 +24,15 @@ module Api
         end
     
         render json: @shop_list
+      end
+
+      def detail
+        request = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + params[:place_id] + "&fields=name,url&key=" + ENV['API_KEY']
+        uri = URI.encode(request)
+        uri = URI.parse(uri)
+        response = Net::HTTP.post_form(uri, {})
+
+        return json: response.body
       end
 
       private
