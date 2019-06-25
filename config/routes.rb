@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get '/place/:input', to: 'place_api#show'
   namespace 'api' do
     namespace 'v1' do
       resources :shops
       get '/search/:text', to: 'shops#search'
+      get '/detail/:place_id', to: 'shops#detail'
     end
   end
 end
