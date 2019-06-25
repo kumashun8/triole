@@ -32,7 +32,9 @@ module Api
         uri = URI.parse(uri)
         response = Net::HTTP.post_form(uri, {})
 
-        return json: response.body
+        @shop = responce.body
+
+        return json: @shop
       end
 
       private
