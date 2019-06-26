@@ -1,22 +1,26 @@
 import axios from 'axios'
 
 export const getShopDetailRequest = () => ({
-  type: 'GET_SHOP_DETAIL_REQUEST'
+  type: 'GET_SHOP_DETAIL_REQUEST',
+  isSelected: false,
 })
 
 export const getShopDetailSuccess = (json) => ({
   type: 'GET_SHOP_DETAIL_SUCCESS',
   shop: json,
+  isSelected: true,
   receivedAt: Date.now()
 })
 
 export const getShopDetailFaiue = (error) => ({
   type: 'GET_SHOP_DETAIL_FAILUE',
+  isSelected: false,
   error
 })
 
 export const requestIsNotExist = () => ({
   type: 'GET_SHOP_DETAIL_FAILUE',
+  isSelected: false,
   shop: []
 })
 

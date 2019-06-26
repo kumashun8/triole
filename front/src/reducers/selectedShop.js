@@ -1,5 +1,6 @@
 const initialState = {
   isFetching2: false,
+  isSelected: false,
   item: []
 }
 
@@ -19,6 +20,7 @@ const selectedShop = (state = [initialState], action) => {
         {
           isFetching2: false,
           item: action.shop,
+          isSelected: action.isSelected,
           lastUpdated: action.receivedAt
         }
       ]
@@ -27,6 +29,8 @@ const selectedShop = (state = [initialState], action) => {
         ...state,
         {
           isFetching2: false,
+          isSelected: action.isSelected,
+          item: action.shop,
           error: action.error
         }
       ]
