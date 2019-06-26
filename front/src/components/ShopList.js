@@ -1,14 +1,22 @@
 import React from 'react'
 import Shop from './Shop'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
-const ShopList = ({ shops, dispatchGetShopDetail }) => (
-  <ul　>
-    {shops.map((shop, index) => (
-      <Shop key={index} handleClick={dispatchGetShopDetail} {...shop}  />
-    ))}
-  </ul>
-)
+const ShopList = ({ shops, dispatchGetShopDetail }) => {
+  if (shops === void 0) {
+    return (
+      <div></div>
+    )
+  } else {
+    return (
+      <ul>
+        {shops.map((shop, index) => (
+          <Shop key={index} handleClick={dispatchGetShopDetail} {...shop} />
+        ))}
+      </ul>
+    )
+  }
+}
 
 ShopList.propTypes = {
   shops: PropTypes.arrayOf(

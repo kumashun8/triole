@@ -1,13 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import Shop from './Shop';
 
-const OkButton = (handleClick) => (
-  <button onClick={e => handleClick()}>OK</button>
+const OkButton = ({ dispatchOkAction }) => (
+  <button onClick={e => dispatchOkAction() }>OK</button>
 )
 
-Shop.propTypes = {
-  handleClick: PropTypes.func.isRequired
+OkButton.propTypes = {
+  dispatchOkAction: PropTypes.func.isRequired
 }
 
 export default OkButton
