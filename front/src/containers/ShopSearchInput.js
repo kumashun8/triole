@@ -29,7 +29,16 @@ class ShopSearchInput extends React.Component {
   }
 }
 
+const mapStateToProps = state => ({
+  
+})
+
+const mapDispatchToProps = dispatch => ({
+  dispatchGetShopList: text => dispatch(getShopList(text))
+})
+
 export default connect(
-  state => ({state: state}),
-  dispatch => ({dispatchGetShopList: text => dispatch(getShopList(text))})
-)(ShopSearchInput)
+  mapStateToProps,
+  mapDispatchToProps
+) (ShopSearchInput)
+

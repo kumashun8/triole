@@ -2,14 +2,17 @@ import { connect } from 'react-redux'
 import OkButton from '../components/OkButton'
 import { requestIsNotExist } from '../actions'
 
-const mapStateToProps = (state) => {
-  return {
-  }
-}
+const mapStateToProps = state => ({
+
+})
+
+const mapDispatchToProps = dispatch => ({
+  dispatchOkAction: value => dispatch(requestIsNotExist())
+})
 
 const ShopOkButton = connect(
   mapStateToProps,
-  dispatch => ({ dispatchOkAction: value => dispatch(requestIsNotExist()) })
+  mapDispatchToProps
 ) (OkButton)
 
 export default ShopOkButton
