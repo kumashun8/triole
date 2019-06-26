@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import ShopList from '../components/ShopList'
-import { getShopDetail } from '../actions/posting'
+import { getShopDetail } from '../actions/detail'
 
 const mapStateToProps = state => {
   const length = state.shopList.length

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getShopList } from '../actions'
+import { getShopList } from '../actions/search'
 
 class ShopSearchInput extends React.Component {
 

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import OkButton from '../components/OkButton'
-import { requestIsNotExist } from '../actions'
+import { requestIsNotExist } from '../actions/search'
 
 const mapStateToProps = state => ({
 

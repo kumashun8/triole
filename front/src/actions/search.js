@@ -1,7 +1,5 @@
 import axios from 'axios'
 
-// PlaceAPI関連
-
 export const getShopListRequest = () => ({
   type: 'GET_SHOP_LIST_REQUEST'
 })
@@ -35,23 +33,3 @@ export const getShopList = (text) => {
     )
   }
 }
-
-// 検索用
-
-let textCount = 0
-
-export const searchingShop = (text) => ({
-  type: 'SEARCHING_SHOP',
-  id: textCount++,
-  text
-})
-
-export const toggleShop = (bool) => ({
-  type: 'TOGGLE_SHOP',
-  isSelected: bool
-})
-
-export const saveShop = placeId => ({
-  type: 'SAVE_SHOP',
-  placeId
-})
