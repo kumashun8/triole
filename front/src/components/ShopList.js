@@ -3,7 +3,7 @@ import Shop from './Shop'
 import PropTypes from 'prop-types';
 
 const ShopList = ({ shops, dispatchGetShopDetail }) => (
-  <ul>
+  <ul　>
     {shops.map((shop, index) => (
       <Shop key={index} handleClick={dispatchGetShopDetail} {...shop}  />
     ))}

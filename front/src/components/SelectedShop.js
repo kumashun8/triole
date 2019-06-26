@@ -2,7 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const SelectedShop = ({ selectedShop }) => (
-  <p><a href={selectedShop.url}>{selectedShop.name}</a></p>
+  <div>
+     <p><a href={selectedShop.url}>{selectedShop.name}</a></p>
+  </div>
+ 
 )
 
 SelectedShop.propTypes = {
