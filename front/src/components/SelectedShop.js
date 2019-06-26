@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const SelectedShop = ({ selectedShop }) => (
   <div>
-     <p><a href={selectedShop.url}>{selectedShop.name}</a></p>
+    <p><a href={selectedShop.url}>{selectedShop.name}</a></p>
   </div>
  
 )

@@ -3,7 +3,7 @@ const initialState = {
   item: []
 }
 
-const selectedShoop = (state = [initialState], action) => {
+const selectedShop = (state = [initialState], action) => {
   switch (action.type) {
     case 'GET_SHOP_DETAIL_REQUEST':
       return [
@@ -35,4 +35,4 @@ const selectedShoop = (state = [initialState], action) => {
   }
 }
 
-export default selectedShoop
+export default selectedShop

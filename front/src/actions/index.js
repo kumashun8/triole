@@ -46,9 +46,9 @@ export const searchingShop = (text) => ({
   text
 })
 
-export const chooseShop = listId => ({
-  type: 'CHOOSE_SHOP',
-  listId
+export const toggleShop = (bool) => ({
+  type: 'TOGGLE_SHOP',
+  isSelected: bool
 })
 
 export const saveShop = placeId => ({
