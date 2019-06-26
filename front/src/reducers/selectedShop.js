@@ -1,6 +1,6 @@
 const initialState = {
   isFetching2: false,
-  selectedShop: []
+  item: []
 }
 
 const selectedShoop = (state = [initialState], action) => {
@@ -10,7 +10,7 @@ const selectedShoop = (state = [initialState], action) => {
         ...state,
         {
           isFetching2: true,
-          selectedShop: []
+          item: []
         }
       ]
     case 'GET_SHOP_DETAIL_SUCCESS':
@@ -18,7 +18,7 @@ const selectedShoop = (state = [initialState], action) => {
         ...state,
         {
           isFetching2: false,
-          selectedShop: action.shop,
+          item: action.shop,
           lastUpdated: action.receivedAt
         }
       ]
