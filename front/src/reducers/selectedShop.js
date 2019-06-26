@@ -19,7 +19,7 @@ const selectedShoop = (state = [initialState], action) => {
         {
           isFetching2: false,
           selectedShop: action.shop,
-          lastUpdated: action.recievedAt
+          lastUpdated: action.receivedAt
         }
       ]
     case 'GET_SHOP_DETAIL_FAILUE':

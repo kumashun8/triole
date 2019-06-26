@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import ShopList from '../components/ShopList'
+import { getShopDetail } from '../actions/posting'
 
 const mapStateToProps = (state) => {
   const length = state.shopList.length
@@ -8,10 +9,9 @@ const mapStateToProps = (state) => {
   return { shops: currentState.items }
 }
 
-
-
 const PredictedShopList = connect(
-  mapStateToProps
+  mapStateToProps,
+  dispatch => ({dispatchGetShopDetail: place_id => dispatch(getShopDetail(place_id))})
 )(ShopList)
 
 export default PredictedShopList

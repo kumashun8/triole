@@ -17,18 +17,19 @@ export const getShopDetailFaiue = (error) => ({
 
 export const requestIsNotExist = () => ({
   type: 'GET_SHOP_DETAIL_FAILUE',
-  shopList: []
+  shop: []
 })
 
 export const getShopDetail = (placeId) => {
   return (dispatch) => {
-    dispatch(getShopListRequest())
+    dispatch(getShopDetailRequest())
     return axios.get(process.env.REACT_APP_API_URI + '/api/v1/detail/' + placeId)
       .then(res => {
         console.log(res.data.result)
-        dispatch(getShopListSuccess(res.data.result))
+        dispatch(getShopDetailSuccess(res.data.result))
       }
-      ).catch(err => 
-      dispatch(getShopFaiue(err))
-    )
+      ).catch(err =>
+        dispatch(getShopDetailFaiue(err))
+      )
   }
+}

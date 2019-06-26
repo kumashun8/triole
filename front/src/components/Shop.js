@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Shop = ({ structured_formatting, place_id }) => (
-  <li>
-    <strong>{structured_formatting.main_text}</strong> : 
+const Shop = ({ structured_formatting, place_id, handleClick }) => (
+  <li　onClick={e => handleClick(place_id)} >
+    <strong>{structured_formatting.main_text}</strong>: 
     {structured_formatting.secondary_text}
   </li>
 )

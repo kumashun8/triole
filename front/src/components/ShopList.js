@@ -2,10 +2,10 @@ import React from 'react'
 import Shop from './Shop'
 import PropTypes from 'prop-types';
 
-const ShopList = ({ shops }) => (
+const ShopList = ({ shops, dispatchGetShopDetail }) => (
   <ul>
     {shops.map((shop, index) => (
-      <Shop key={index} {...shop}  />
+      <Shop key={index} handleClick={dispatchGetShopDetail} {...shop}  />
     ))}
   </ul>
 )
