@@ -1,5 +1,11 @@
 import axios from 'axios'
 
+export const SearchStatuses = {
+  GET_SHOP_LIST_REQUEST: 'GET_SHOP_LIST_REQUEST',
+  GET_SHOP_LIST_SUCCESS: 'GET_SHOP_LIST_SUCCESS',
+  GET_SHOP_LIST_FAILUE: 'GET_SHOP_LIST_FAILUE'
+}
+
 export const getShopListRequest = () => ({
   type: 'GET_SHOP_LIST_REQUEST'
 })

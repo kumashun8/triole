@@ -1,3 +1,5 @@
+import {SearchStatuses} from '../actions/search'
+
 const initialState = {
   isFetching: false,
   items: []
@@ -5,7 +7,7 @@ const initialState = {
 
 const shopList = (state = [initialState], action) => {
   switch (action.type) {
-    case 'GET_SHOP_LIST_REQUEST':
+    case SearchStatuses.GET_SHOP_LIST_REQUEST:
       return [
         ...state,
         {
@@ -13,7 +15,7 @@ const shopList = (state = [initialState], action) => {
           items: []
         }
       ]
-    case 'GET_SHOP_LIST_SUCCESS':
+    case SearchStatuses.GET_SHOP_LIST_SUCCESS:
       return [
         ...state,
         {
@@ -22,7 +24,7 @@ const shopList = (state = [initialState], action) => {
           lastUpdated: action.recievedAt
         }
       ]
-    case 'GET_SHOP_LIST_FAILUE':
+    case SearchStatuses.GET_SHOP_LIST_FAILUE:
       return [
         ...state,
         {

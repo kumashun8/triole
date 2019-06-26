@@ -1,3 +1,5 @@
+import {DetailStatuses} from '../actions/detail'
+
 const initialState = {
   isFetching2: false,
   isSelected: false,
@@ -6,7 +8,7 @@ const initialState = {
 
 const selectedShop = (state = [initialState], action) => {
   switch (action.type) {
-    case 'GET_SHOP_DETAIL_REQUEST':
+    case DetailStatuses.GET_SHOP_DETAIL_REQUEST:
       return [
         ...state,
         {
@@ -14,7 +16,7 @@ const selectedShop = (state = [initialState], action) => {
           item: []
         }
       ]
-    case 'GET_SHOP_DETAIL_SUCCESS':
+    case DetailStatuses.GET_SHOP_DETAIL_SUCCESS:
       return [
         ...state,
         {
@@ -24,7 +26,7 @@ const selectedShop = (state = [initialState], action) => {
           lastUpdated: action.receivedAt
         }
       ]
-    case 'GET_SHOP_DETAIL_FAILUE':
+    case DetailStatuses.GET_SHOP_DETAIL_FAILUE:
       return [
         ...state,
         {

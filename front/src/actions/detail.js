@@ -1,5 +1,11 @@
 import axios from 'axios'
 
+export const DetailStatuses = {
+  GET_SHOP_DETAIL_REQUEST: 'GET_SHOP_DETAIL_REQUEST',
+  GET_SHOP_DETAIL_SUCCESS: 'GET_SHOP_DETAIL_SUCCESS',
+  GET_SHOP_DETAIL_FAILUE: 'GET_SHOP_DETAIL_FAILUE'
+}
+
 export const getShopDetailRequest = () => ({
   type: 'GET_SHOP_DETAIL_REQUEST',
   isSelected: false,

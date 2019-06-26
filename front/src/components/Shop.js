@@ -14,7 +14,8 @@ Shop.propTypes = {
       main_text: PropTypes.string.isRequired,
       secondary_text: PropTypes.string.isRequired
     }).isRequired,
-    place_id: PropTypes.string.isRequired
+    place_id: PropTypes.string.isRequired,
+    handleClick: PropTypes.func.isRequired
   })
 }
 
