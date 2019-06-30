@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_30_023106) do
+ActiveRecord::Schema.define(version: 2019_06_30_063303) do
 
   create_table "collections", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -23,15 +23,21 @@ ActiveRecord::Schema.define(version: 2019_06_30_023106) do
     t.string "name"
     t.integer "price"
     t.text "description"
+    t.bigint "collection_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["collection_id"], name: "index_recommends_on_collection_id"
   end
 
   create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "name"
-    t.text "googlemap_link"
+    t.string "name"
+    t.string "googlemap_link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "recommend_id"
+    t.index ["recommend_id"], name: "index_shops_on_recommend_id"
   end
 
+  add_foreign_key "recommends", "collections"
+  add_foreign_key "shops", "recommends"
 end
