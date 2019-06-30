@@ -13,7 +13,7 @@ class Api::V1::CollectionsController < ApplicationController
 
     def collection_params
       params.require(:collection).permit(
-        :title,
+        :title
         # recommend: [
         #   :name,
         #   :price
