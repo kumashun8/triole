@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const SearchStatuses = {
+export const IndexStatuses = {
   GET_COLLECTIONS_REQUEST: 'GET_COLLECTIONS_REQUEST',
   GET_COLLECTIONS_SUCCESS: 'GET_COLLECTIONS_SUCCESS',
   GET_COLLECTIONS_FAILUE: 'GET_COLLECTIONS_FAILUE'

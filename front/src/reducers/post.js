@@ -12,7 +12,7 @@ const post = (state = [initialState], action) => {
         ...state,
         {
           isFetching: true,
-          item: []
+          collection: []
         }
       ]
     case PostingStatuses.POST_COLLECTION_SUCCESS:
@@ -20,7 +20,7 @@ const post = (state = [initialState], action) => {
         ...state,
         {
           isFetching: false,
-          item: action.collection,
+          collection: action.collection,
           lastUpdated: action.recievedAt
         }
       ]

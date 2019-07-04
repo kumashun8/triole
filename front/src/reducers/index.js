@@ -1,10 +1,39 @@
-import { combineReducers } from 'redux'
-import shopList from './shopList'
-import selectedShop from './selectedShop'
-import post from './post'
+import { IndexStatuses } from '../actions/index'
 
-export default combineReducers({
-  shopList,
-  selectedShop,
-  post
-})
+const initialState = {
+  isFetching: false,
+  collections: []
+}
+
+const index = (state = [initialState], action) => {
+  switch (action.type) {
+    case IndexStatuses.GET_COLLECTIONS_REQUEST:
+      return [
+        ...state,
+        {
+          isFetching: true
+        }
+      ]
+    case IndexStatuses.GET_COLLECTIONS_SUCCESS:
+      return [
+        ...state,
+        {
+          isFetching: false,
+          collections: action.collections,
+          lastUpdated: action.recievedAt
+        }
+      ]
+    case IndexStatuses.GET_COLLECTIONS_FAILUE:
+      return [
+        ...state,
+        {
+          isFetching: false,
+          error: action.error
+        }
+      ]
+    default:
+      return state
+  }
+}
+
+export default index
