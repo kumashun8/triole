@@ -7,7 +7,7 @@ const PostInput = ({ dispatchPostAction }) => {
     <div>
       <form>
         <input ref={node => { input = node }} />
-        <button onClick={e => {dispatchPostAction(input)}}>OK</button>
+        <button onClick={e => {dispatchPostAction(input.value)}}>OK</button>
       </form>
     </div>
   )
