@@ -11,7 +11,8 @@ const index = (state = [initialState], action) => {
       return [
         ...state,
         {
-          isFetching: true
+          isFetching: true,
+          collections: []
         }
       ]
     case IndexStatuses.GET_COLLECTIONS_SUCCESS:

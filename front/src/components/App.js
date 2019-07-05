@@ -3,6 +3,7 @@ import ShopSearchInput from '../containers/ShopSearchInput'
 import PredictedShopList from '../containers/PredictedShopList'
 import ShopWrapper from '../components/ShopWrapper'
 import CollectionPostInput from '../containers/CollectionPostInput'
+import CollectionIndex from '../containers/CollectionIndex'
 
 class App extends React.Component {
   render() {
@@ -12,6 +13,7 @@ class App extends React.Component {
         <ShopSearchInput />
         <PredictedShopList />
         <CollectionPostInput />
+        <CollectionIndex />
       </div>
     );
   }

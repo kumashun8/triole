@@ -30,7 +30,7 @@ export const getCollections = () => {
     dispatch(getCollectionsRequest())
     return axios.get(process.env.REACT_APP_API_URI + '/api/v1/collections/')
       .then(res => {
-        console.log(res.data)
+        // console.log(res.data)
         dispatch(getCollectionsSuccess(res.data))
       }
       ).catch(err => 

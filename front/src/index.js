@@ -7,11 +7,14 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import * as serviceWorker from './serviceWorker';
+import {getCollections} from './actions/index'
 
 const store = createStore(
   rootReducer,
   applyMiddleware(thunkMiddleware)
 );
+
+store.dispatch(getCollections())
 
 ReactDOM.render(
   <Provider store={store}>

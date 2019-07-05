@@ -1,9 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Collection from './Collection';
+import Collection from './Collection'
 
 const CollectionList = ({ collections, dispatchGetAction }) => {
-  dispatchGetAction()
+  if (collections === void 0) {
+    return(<div></div>)
+  } 
+
   return (
     <ul>
       {collections.map((collection, index) => (
@@ -14,7 +17,7 @@ const CollectionList = ({ collections, dispatchGetAction }) => {
 }
 
 CollectionList.propTypes = {
-  collection: PropTypes.arrayOf(
+  collections: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired
     }).isRequired
