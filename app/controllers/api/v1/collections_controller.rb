@@ -7,7 +7,7 @@ module Api
       end
     
       def index
-        @collections = Collection.all
+        @collections = Collection.order(created_at: "DESC")
         render json: @collections
       end
     
