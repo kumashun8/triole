@@ -16,7 +16,7 @@ Shop.propTypes = {
     }).isRequired,
     place_id: PropTypes.string.isRequired,
     handleClick: PropTypes.func.isRequired
-  })
+  }).isRequired
 }
 
 export default Shop
