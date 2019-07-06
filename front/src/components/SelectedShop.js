@@ -3,8 +3,15 @@ import PropTypes from 'prop-types'
 
 const SelectedShop = ({ selectedShop, dispatchSelectCancel }) => (
   <div>
-    <p><a href={selectedShop.url}>{selectedShop.name}</a></p>
-    <button onClick={e => dispatchSelectCancel() }>×</button>
+    <p>お店: <a href={selectedShop.url}>{selectedShop.name}</a></p>
+    <button
+      onClick={e => {
+        e.preventDefault()
+        dispatchSelectCancel()
+      }}
+    >
+      ×
+    </button>
   </div>
  
 )

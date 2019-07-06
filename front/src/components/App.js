@@ -9,9 +9,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <ShopWrapper />
-        <ShopSearchInput />
-        <PredictedShopList />
         <CollectionPostInput />
         <CollectionIndex />
       </div>

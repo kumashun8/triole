@@ -5,8 +5,9 @@ import { requestIsNotExist } from '../actions/detail'
 const mapStateToProps = state => {
   const length = state.selectedShop.length
   const currentState = state.selectedShop[length - 1]
+  console.log(state)
   return {
-    selectedShop: currentState.item
+    selectedShop: currentState.shop
   }
 }
 

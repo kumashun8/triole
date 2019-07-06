@@ -2,7 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types';
 
 const OkButton = ({ dispatchOkAction }) => (
-  <button onClick={e => dispatchOkAction() }>OK</button>
+  <button
+    onClick={e => {
+      e.preventDefault()
+      dispatchOkAction()
+    }}
+  >
+    OK
+  </button>
 )
 
 OkButton.propTypes = {

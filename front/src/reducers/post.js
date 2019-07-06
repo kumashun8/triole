@@ -2,17 +2,52 @@ import { PostingStatuses } from '../actions/posting'
 
 const initialState = {
   isFetching: false,
-  collection: []
+  collection: {
+    title: "",
+    recommends: [
+      {
+        name: "",
+        price: "",
+        shop: {
+          name: "",
+          googlemap_link: ""
+        }
+      },
+      {
+        name: "",
+        price: "",
+        shop: {
+          name: "",
+          googlemap_link: ""
+        }
+      },
+      {
+        name: "",
+        price: "",
+        shop: {
+          name: "",
+          googlemap_link: ""
+        }
+      }
+    ]
+  }
 }
 
 const post = (state = [initialState], action) => {
   switch (action.type) {
+    case PostingStatuses.UPDATE_POSTINGT_FORM:
+      return [
+        ...state,
+        {
+          isFetching: false,
+          collection: action.collection
+        }
+      ]
     case PostingStatuses.POST_COLLECTION_REQUEST:
       return [
         ...state,
         {
-          isFetching: true,
-          collection: []
+          isFetching: true
         }
       ]
     case PostingStatuses.POST_COLLECTION_SUCCESS:
@@ -20,7 +55,6 @@ const post = (state = [initialState], action) => {
         ...state,
         {
           isFetching: false,
-          collection: action.collection,
           lastUpdated: action.recievedAt
         }
       ]

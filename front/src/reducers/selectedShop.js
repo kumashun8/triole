@@ -3,7 +3,7 @@ import {DetailStatuses} from '../actions/detail'
 const initialState = {
   isFetching2: false,
   isSelected: false,
-  item: []
+  shop: []
 }
 
 const selectedShop = (state = [initialState], action) => {
@@ -13,7 +13,7 @@ const selectedShop = (state = [initialState], action) => {
         ...state,
         {
           isFetching2: true,
-          item: []
+          shop: []
         }
       ]
     case DetailStatuses.GET_SHOP_DETAIL_SUCCESS:
@@ -21,7 +21,7 @@ const selectedShop = (state = [initialState], action) => {
         ...state,
         {
           isFetching2: false,
-          item: action.shop,
+          shop: action.shop,
           isSelected: action.isSelected,
           lastUpdated: action.receivedAt
         }
