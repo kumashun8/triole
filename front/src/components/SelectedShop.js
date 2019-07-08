@@ -1,8 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const SelectedShop = ({ selectedShop, dispatchSelectCancel }) => (
-  <div>
+const SelectedShop = ({ selectedShop, dispatchSelectCancel }) => {
+  if (selectedShop === void 0) {
+    return <div></div>
+  }
+  return (
+    <div>
     <p>お店: <a href={selectedShop.url}>{selectedShop.name}</a></p>
     <button
       onClick={e => {
@@ -13,8 +17,8 @@ const SelectedShop = ({ selectedShop, dispatchSelectCancel }) => (
       ×
     </button>
   </div>
- 
-)
+  )
+}
 
 SelectedShop.propTypes = {
   selectedShop:　PropTypes.shape({

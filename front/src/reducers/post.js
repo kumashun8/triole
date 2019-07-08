@@ -2,35 +2,7 @@ import { PostingStatuses } from '../actions/posting'
 
 const initialState = {
   isFetching: false,
-  collection: {
-    title: "",
-    recommends: [
-      {
-        name: "",
-        price: "",
-        shop: {
-          name: "",
-          googlemap_link: ""
-        }
-      },
-      {
-        name: "",
-        price: "",
-        shop: {
-          name: "",
-          googlemap_link: ""
-        }
-      },
-      {
-        name: "",
-        price: "",
-        shop: {
-          name: "",
-          googlemap_link: ""
-        }
-      }
-    ]
-  }
+  collection: {}
 }
 
 const post = (state = [initialState], action) => {
