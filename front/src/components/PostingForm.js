@@ -1,5 +1,7 @@
 import React from 'react'
 import ShopWrapper from './ShopWrapper'
+import ShopWrapper2 from './ShopWrapper2'
+import ShopWrapper3 from './ShopWrapper3'
 
 const preventEnterKey = () => {
   if (window.event.keyCode === 13) {
@@ -7,7 +9,7 @@ const preventEnterKey = () => {
   }
 }
 
-const PostingForm = ({ dispatchPostAction, shop }) => {
+const PostingForm = ({ dispatchPostAction, shops }) => {
   let title
   let recommends = [
     {
@@ -77,7 +79,7 @@ const PostingForm = ({ dispatchPostAction, shop }) => {
               ref={node => { recommends[1].price = node }}
             />
           </div>
-          <ShopWrapper />
+          <ShopWrapper2 />
         </div>
         <div>
           <p>オススメ3</p>
@@ -99,7 +101,7 @@ const PostingForm = ({ dispatchPostAction, shop }) => {
               ref={node => { recommends[2].price = node }}
             />
           </div>
-          <ShopWrapper />
+          <ShopWrapper3 />
         </div>
         <button
         type="button"
@@ -111,24 +113,24 @@ const PostingForm = ({ dispatchPostAction, shop }) => {
                 name: recommends[0].name.value,
                 price: recommends[0].price.value,
                 shop: {
-                  name: shop.name,
-                  googlemap_link: shop.url
+                  name: shops[0].name,
+                  googlemap_link: shops[0].url
                 }
               },
               {
                 name: recommends[1].name.value,
                 price: recommends[1].price.value,
                 shop: {
-                  name: shop.name,
-                  googlemap_link: shop.url
+                  name: shops[1].name,
+                  googlemap_link: shops[1].url
                 }
               },
               {
                 name: recommends[2].name.value,
                 price: recommends[2].price.value,
                 shop: {
-                  name: shop.name,
-                  googlemap_link: shop.url
+                  name: shops[2].name,
+                  googlemap_link: shops[2].url
                 }
               },
             ]

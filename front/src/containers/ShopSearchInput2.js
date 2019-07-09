@@ -3,17 +3,17 @@ import { getShopList } from '../actions/search'
 import SearchInput from '../components/SearchInput'
 
 const mapStateToProps = state => ({
-  index: 1
+  index: 2
 })
 
 const mapDispatchToProps = dispatch => ({
   dispatchGetAction: (text, index) => dispatch(getShopList(text, index))
 })
 
-const ShopSearchInput = connect(
+const ShopSearchInput2 = connect(
   mapStateToProps,
   mapDispatchToProps
 ) (SearchInput)
 
-export default ShopSearchInput
+export default ShopSearchInput2
 

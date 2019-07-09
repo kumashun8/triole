@@ -2,10 +2,13 @@ import React from 'react'
 import Shop from './Shop'
 import PropTypes from 'prop-types'
 
-const ShopList = ({ shops, dispatchGetShopDetail }) => {
-  if (shops === void 0) {
+const ShopList = ({ shops, dispatchGetShopDetail, index }) => {
+  console.log("-------------")
+  console.log(shops)
+  console.log("-------------")
+  if (shops.length === 0) {
     return (
-      <div></div>
+      <div><p>きんたまじゃん</p></div>
     )
   } else {
     return (
@@ -20,14 +23,16 @@ const ShopList = ({ shops, dispatchGetShopDetail }) => {
 
 ShopList.propTypes = {
   shops: PropTypes.arrayOf(
-    PropTypes.shape({
-      structured_formatting: PropTypes.shape({
-        main_text: PropTypes.string.isRequired,
-        secondary_text: PropTypes.string.isRequired
-      }).isRequired,
-      place_id: PropTypes.string.isRequired
-    }).isRequired
-  ).isRequired
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        structured_formatting: PropTypes.shape({
+          main_text: PropTypes.string.isRequired,
+          secondary_text: PropTypes.string.isRequired
+        }).isRequired,
+        place_id: PropTypes.string.isRequired
+      }).isRequired
+    ).isRequired
+  ).isRequired  
 }
 
 export default ShopList

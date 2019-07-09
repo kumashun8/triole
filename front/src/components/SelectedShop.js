@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const SelectedShop = ({ selectedShop, dispatchSelectCancel }) => {
+const SelectedShop = ({ selectedShop, dispatchSelectCancel, index }) => {
   if (selectedShop === void 0) {
     return <div></div>
   }

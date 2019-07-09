@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SearchInput = ({ dispatchGetAction }) => {
+const SearchInput = ({ dispatchGetAction, index }) => {
   let input
 
   return (
@@ -11,7 +11,7 @@ const SearchInput = ({ dispatchGetAction }) => {
           if (!input.value.trim()) {
             return
           }
-          dispatchGetAction(input.value)
+          dispatchGetAction(input.value, index)
         }}
       >
         <input ref={node => { input = node }} />

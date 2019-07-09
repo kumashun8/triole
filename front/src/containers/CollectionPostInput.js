@@ -10,7 +10,7 @@ const mapStateToProps = state => {
   console.log(currentState2)
   return {
     collection: currentState.collection,
-    shop: currentState2.shop
+    shops: currentState2.shop
   }
 }
 
