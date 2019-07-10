@@ -1,0 +1,14 @@
+@import '../../variables/variables';
+
+.header {
+  height: 120px;
+  width: 100vw;
+  background-color: $main;
+  &_menu {
+    text-align: center;
+    &_home {
+      width: 200px;
+      padding-top: 24px;
+    }
+  }
+}
