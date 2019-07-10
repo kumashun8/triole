@@ -1,0 +1,8 @@
+@import '../../variables/variables';
+
+.headline {
+  font-size: 1.2rem;
+  font-weight: $bold-weight;
+  border-left: 8px solid $main;
+  padding-left: 8px;
+}

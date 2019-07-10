@@ -2,6 +2,7 @@ import React from 'react'
 import ShopWrapper from './ShopWrapper'
 import ShopWrapper2 from './ShopWrapper2'
 import ShopWrapper3 from './ShopWrapper3'
+import Headline from './Headline'
 
 const preventEnterKey = () => {
   if (window.event.keyCode === 13) {
@@ -28,6 +29,7 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
 
   return (
     <div>
+      <Headline title="投稿フォーム" />
       <form name="collectionForm">
         <div>
           <label>コレクション名: </label>
