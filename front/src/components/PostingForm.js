@@ -3,6 +3,7 @@ import ShopWrapper from './ShopWrapper'
 import ShopWrapper2 from './ShopWrapper2'
 import ShopWrapper3 from './ShopWrapper3'
 import Headline from './Headline'
+import Styles from '../styles/components/postingForm.module.scss'
 
 const preventEnterKey = () => {
   if (window.event.keyCode === 13) {
@@ -28,28 +29,31 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
   ]
 
   return (
-    <div>
+    <div className={Styles.formWrapper}>
       <Headline title="投稿フォーム" />
-      <form name="collectionForm">
-        <div>
+      <form className={Styles.collection} name="collectionForm">
+        <div className={Styles.collection_title}>
           <label>コレクション名: </label>
           <input
+            size="48"
+            maxLength="30"
+            placeholder="30文字以内"
             onKeyPress={e => preventEnterKey()}
             ref={node => { title = node }}
           />
         </div>
-
-        <div>
-          <p>オススメ1</p>
-          <div>
+        <p className={Styles.marker}>オススメ1</p>    
+        <div className={Styles.collection_recommend}>
+          <div className={Styles.collection_recommend_name}>
             <label>名前: </label>
             <input
+              placeholder="30文字以内"
               onKeyPress={e => preventEnterKey()}
               ref={node => { recommends[0].name = node }}
             />
           </div>
-          <div>
-            <label>値段: </label>
+          <div className={Styles.collection_recommend_price}>
+            <label>値段[円]: </label>
             <input
               onKeyPress={e => preventEnterKey()}
               type="number"
@@ -59,19 +63,20 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
               ref={node => { recommends[0].price = node }}
             />
           </div>
-          <ShopWrapper />
         </div>
-        <div>
-          <p>オススメ2</p>
-          <div>
+        <ShopWrapper />
+        <p className={Styles.marker}>オススメ2</p>  
+        <div className={Styles.collection_recommend}>
+          <div className={Styles.collection_recommend_name}>
             <label>名前: </label>
             <input
+              placeholder="30文字以内"
               onKeyPress={e => preventEnterKey()}
               ref={node => { recommends[1].name = node }}
             />
           </div>
-          <div>
-            <label>値段: </label>
+          <div className={Styles.collection_recommend_price}>
+            <label>値段[円]: </label>
             <input
               onKeyPress={e => preventEnterKey()}
               type="number"
@@ -81,19 +86,20 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
               ref={node => { recommends[1].price = node }}
             />
           </div>
-          <ShopWrapper2 />
         </div>
-        <div>
-          <p>オススメ3</p>
-          <div>
+        <ShopWrapper2 />
+        <p className={Styles.marker}>オススメ3</p>  
+        <div className={Styles.collection_recommend}>
+          <div className={Styles.collection_recommend_name}>
             <label>名前: </label>
             <input
+              placeholder="30文字以内"
               onKeyPress={e => preventEnterKey()}
               ref={node => { recommends[2].name = node }}
             />
           </div>
-          <div>
-            <label>値段: </label>
+          <div className={Styles.collection_recommend_price}>
+            <label>値段[円]: </label>
             <input
               onKeyPress={e => preventEnterKey()}
               type="number"
@@ -103,51 +109,52 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
               ref={node => { recommends[2].price = node }}
             />
           </div>
-          <ShopWrapper3 />
         </div>
+        <ShopWrapper3 />
         <button
-        type="button"
-        onClick={e => {
-          dispatchPostAction({
-            title: title.value,
-            recommends: [
-              {
-                name: recommends[0].name.value,
-                price: recommends[0].price.value,
-                shop: {
-                  name: shops[0].name,
-                  googlemap_link: shops[0].url
-                }
-              },
-              {
-                name: recommends[1].name.value,
-                price: recommends[1].price.value,
-                shop: {
-                  name: shops[1].name,
-                  googlemap_link: shops[1].url
-                }
-              },
-              {
-                name: recommends[2].name.value,
-                price: recommends[2].price.value,
-                shop: {
-                  name: shops[2].name,
-                  googlemap_link: shops[2].url
-                }
-              },
-            ]
-          })
-          title.value = ""
-          recommends.map(recommend => 
-            recommend.name.value = recommend.price.value = ""
-          )
-          for (let i = 1; i < 4; i++) {
-            dispatchClearShopList(i)
-            dispatchClearSelectedShop(i)
-          }
-        }}
-      >
-        投稿
+          className={Styles.submitButton}
+          type="button"
+          onClick={e => {
+            dispatchPostAction({
+              title: title.value,
+              recommends: [
+                {
+                  name: recommends[0].name.value,
+                  price: recommends[0].price.value,
+                  shop: {
+                    name: shops[0].name,
+                    googlemap_link: shops[0].url
+                  }
+                },
+                {
+                  name: recommends[1].name.value,
+                  price: recommends[1].price.value,
+                  shop: {
+                    name: shops[1].name,
+                    googlemap_link: shops[1].url
+                  }
+                },
+                {
+                  name: recommends[2].name.value,
+                  price: recommends[2].price.value,
+                  shop: {
+                    name: shops[2].name,
+                    googlemap_link: shops[2].url
+                  }
+                },
+              ]
+            })
+            title.value = ""
+            recommends.map(recommend => 
+              recommend.name.value = recommend.price.value = ""
+            )
+            for (let i = 1; i < 4; i++) {
+              dispatchClearShopList(i)
+              dispatchClearSelectedShop(i)
+            }
+          }}
+        >
+          投稿!!
       </button>
 
       </form>
