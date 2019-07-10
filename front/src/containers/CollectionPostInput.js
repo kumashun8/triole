@@ -7,7 +7,7 @@ const mapStateToProps = state => {
   const currentState = state.post[length - 1]
   const length2 = state.selectedShop.length
   const currentState2 = state.selectedShop[length2 - 1]
-  console.log(currentState2)
+  // console.log(currentState2)
   return {
     collection: currentState.collection,
     shops: currentState2.shop

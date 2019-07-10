@@ -5,10 +5,9 @@ import { getShopDetail } from '../actions/detail'
 const mapStateToProps = state => {
   const length = state.shopList.length
   const currentState = state.shopList[length - 1]
-  console.log(currentState.items)
+  // console.log(currentState.items)
   return {
-    shops: currentState.items === void 0 ? [] : currentState.items[0],
-    index: 1
+    shops: currentState.items[0]
   }
 }
 

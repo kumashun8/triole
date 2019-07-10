@@ -6,8 +6,7 @@ const mapStateToProps = state => {
   const length = state.selectedShop.length
   const currentState = state.selectedShop[length - 1]
   return {
-    selectedShop: currentState.shop[2],
-    index: 3
+    selectedShop: currentState.shop[2]
   }
 }
 

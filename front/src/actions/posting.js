@@ -34,7 +34,7 @@ export const postCollection = (collection) => {
         collection: collection
       })
       .then(res => {
-        console.log(res)
+        // console.log(res)
         dispatch(postCollectionSuccess(res))
         dispatch(getCollections())
       }

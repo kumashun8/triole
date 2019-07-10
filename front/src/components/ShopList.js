@@ -2,13 +2,10 @@ import React from 'react'
 import Shop from './Shop'
 import PropTypes from 'prop-types'
 
-const ShopList = ({ shops, dispatchGetShopDetail, index }) => {
-  console.log("-------------")
-  console.log(shops)
-  console.log("-------------")
+const ShopList = ({ shops, dispatchGetShopDetail }) => {
   if (shops.length === 0) {
     return (
-      <div><p>きんたまじゃん</p></div>
+      <div></div>
     )
   } else {
     return (

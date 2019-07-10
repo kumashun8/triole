@@ -5,17 +5,16 @@ const SearchInput = ({ dispatchGetAction, index }) => {
 
   return (
     <div>
-      <form
-        onChange={e => {
-          e.preventDefault()
-          if (!input.value.trim()) {
-            return
-          }
-          dispatchGetAction(input.value, index)
-        }}
-      >
-        <input ref={node => { input = node }} />
-      </form>
+        <input
+           onChange={e => {
+            e.preventDefault()
+            if (!input.value.trim()) {
+              return
+            }
+            dispatchGetAction(input.value, index)
+          }}
+          ref={node => { input = node }}
+        />
     </div>
   )
 }
