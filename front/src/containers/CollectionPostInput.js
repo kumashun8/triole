@@ -1,5 +1,7 @@
 import { connect } from 'react-redux'
 import { postCollection } from '../actions/posting'
+import { clearShopList } from '../actions/search'
+import { clearSelectedShop } from '../actions/detail'
 import PostingForm from '../components/PostingForm'
 
 const mapStateToProps = state => {
@@ -15,7 +17,9 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  dispatchPostAction: collection => dispatch(postCollection(collection))
+  dispatchPostAction: collection => dispatch(postCollection(collection)),
+  dispatchClearShopList: index => dispatch(clearShopList(index)),
+  dispatchClearSelectedShop: index => dispatch(clearSelectedShop(index))
 })
 
 const CollectionPostInput = connect(

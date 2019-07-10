@@ -5,16 +5,17 @@ const SearchInput = ({ dispatchGetAction, index }) => {
 
   return (
     <div>
-        <input
-           onChange={e => {
-            e.preventDefault()
-            if (!input.value.trim()) {
-              return
-            }
-            dispatchGetAction(input.value, index)
-          }}
-          ref={node => { input = node }}
-        />
+      <input
+          placeholder="店舗名を検索"
+          onChange={e => {
+          e.preventDefault()
+          if (!input.value.trim()) {
+            return
+          }
+          dispatchGetAction(input.value, index)
+        }}
+        ref={node => { input = node }}
+      />
     </div>
   )
 }

@@ -9,7 +9,7 @@ const preventEnterKey = () => {
   }
 }
 
-const PostingForm = ({ dispatchPostAction, shops }) => {
+const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearSelectedShop, shops }) => {
   let title
   let recommends = [
     {
@@ -139,6 +139,10 @@ const PostingForm = ({ dispatchPostAction, shops }) => {
           recommends.map(recommend => 
             recommend.name.value = recommend.price.value = ""
           )
+          for (let i = 1; i < 4; i++) {
+            dispatchClearShopList(i)
+            dispatchClearSelectedShop(i)
+          }
         }}
       >
         投稿
