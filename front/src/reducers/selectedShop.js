@@ -1,8 +1,7 @@
 import {DetailStatuses} from '../actions/detail'
 
 const initialState = {
-  isFetching2: false,
-  isSelected: false,
+  isFetching: false,
   shop: [{},{},{}]
 }
 
@@ -15,7 +14,7 @@ const selectedShop = (state = [initialState], action) => {
       return [
         ...state,
         {
-          isFetching2: true,
+          isFetching: true,
           shop: newShop
         }
       ]
@@ -25,9 +24,8 @@ const selectedShop = (state = [initialState], action) => {
       return [
         ...state,
         {
-          isFetching2: false,
+          isFetching: false,
           shop: newShop,
-          isSelected: action.isSelected,
           lastUpdated: action.receivedAt
         }
       ]
@@ -35,10 +33,18 @@ const selectedShop = (state = [initialState], action) => {
       return [
         ...state,
         {
-          isFetching2: false,
-          isSelected: action.isSelected,
-          item: newShop,
+          isFetching: false,
+          shop: newShop,
           error: action.error
+        }
+      ]
+    case DetailStatuses.CLEAR_SELECTED_SHOP:
+      newShop[action.index - 1] = {}
+      return [
+        ...state,
+        {
+          isFetching: false,
+          shop: newShop
         }
       ]
     default:

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import SelectedShop from '../components/SelectedShop'
-import { requestIsNotExist } from '../actions/detail'
+import { clearSelectedShop } from '../actions/detail'
 
 const mapStateToProps = state => {
   const length = state.selectedShop.length
@@ -13,7 +13,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  dispatchSelectCancel: value => dispatch(requestIsNotExist())
+  dispatchSelectCancel: value => dispatch(clearSelectedShop(1))
 })
 
 const NewSelectedShop = connect(
