@@ -24,7 +24,29 @@ module Api
       end
     
       def index
-        @collections = Collection.order(created_at: "DESC")
+        collections = Collection.order(created_at: "DESC").includes(recommends: :shop).references(:recommends, :shop)
+        @collections = []
+        collections.each do |collection|
+          shopIncludingRecommends = []
+          collection.recommends.each do |recommend|
+            p recommend.shop.name
+            shopIncludingRecommends.push(
+              {
+                name: recommend.name,
+                price: recommend.price,
+                shop: {
+                  name: recommend.shop.name,
+                  googlemap_link: recommend.shop.googlemap_link 
+                }
+              }
+            )
+          end
+          @collections.push({
+            title: collection.title,
+            recommends: shopIncludingRecommends
+          })
+        end
+
         render json: @collections
       end
     
