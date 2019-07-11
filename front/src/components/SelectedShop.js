@@ -1,21 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const SelectedShop = ({ selectedShop, dispatchSelectCancel, index }) => {
-  if (selectedShop === void 0) {
+const SelectedShop = ({ selectedShop, dispatchSelectCancel }) => {
+  console.log(selectedShop)
+  if (Object.keys(selectedShop).length === 0) {
     return <div></div>
   }
   return (
     <div>
-    <p>お店: <a href={selectedShop.url}>{selectedShop.name}</a></p>
-    <button
-      onClick={e => {
-        e.preventDefault()
-        dispatchSelectCancel()
-      }}
-    >
-      ×
-    </button>
+      <a href={selectedShop.url}>{selectedShop.name}</a>
+      <button
+        onClick={e => {
+          e.preventDefault()
+          dispatchSelectCancel()
+        }}
+      >
+        ×
+      </button>
   </div>
   )
 }

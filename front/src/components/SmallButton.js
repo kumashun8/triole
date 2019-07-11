@@ -1,19 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 
-const OkButton = ({ dispatchOkAction }) => (
+const SmallButton = ({ text, dispatchOkAction }) => (
   <button
     onClick={e => {
       e.preventDefault()
       dispatchOkAction()
     }}
   >
-    OK
+    {text}
   </button>
 )
 
-OkButton.propTypes = {
+SmallButton.propTypes = {
+  text: PropTypes.string.isRequired,
   dispatchOkAction: PropTypes.func.isRequired
 }
 
-export default OkButton
+export default SmallButton

@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
-import OkButton from '../components/OkButton'
+import SmallButton from '../components/SmallButton'
 import { clearShopList } from '../actions/search'
 
 const mapStateToProps = state => ({
-
+  text: "OK"
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -13,6 +13,6 @@ const mapDispatchToProps = dispatch => ({
 const ShopOkButton = connect(
   mapStateToProps,
   mapDispatchToProps
-) (OkButton)
+) (SmallButton)
 
 export default ShopOkButton

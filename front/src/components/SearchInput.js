@@ -5,6 +5,7 @@ const SearchInput = ({ dispatchGetAction, index }) => {
 
   return (
     <div>
+      <label>お店: </label>
       <input
           placeholder="店舗名を検索"
           onChange={e => {
