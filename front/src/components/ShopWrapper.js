@@ -7,7 +7,6 @@ import PredictedShopList from '../containers/PredictedShopList'
 const ShopWrapper = () => (
   <div>
     <NewSelectedShop />
-    <ShopOkButton />
     <ShopSearchInput />
     <PredictedShopList />
   </div>

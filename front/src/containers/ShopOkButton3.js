@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  dispatchOkAction: value => dispatch(clearShopList(3))
+  dispatchClickAction: value => dispatch(clearShopList(3))
 })
 
 const ShopOkButton = connect(

@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 
-const SmallButton = ({ text, dispatchOkAction }) => (
+const SmallButton = ({ text, dispatchClickAction }) => (
   <button
     onClick={e => {
       e.preventDefault()
-      dispatchOkAction()
+      dispatchClickAction()
     }}
   >
     {text}
@@ -14,7 +14,7 @@ const SmallButton = ({ text, dispatchOkAction }) => (
 
 SmallButton.propTypes = {
   text: PropTypes.string.isRequired,
-  dispatchOkAction: PropTypes.func.isRequired
+  dispatchClickAction: PropTypes.func.isRequired
 }
 
 export default SmallButton
