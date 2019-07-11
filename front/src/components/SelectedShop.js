@@ -44,7 +44,13 @@ const SelectedShop = ({ selectedShop, index }) => {
   }
   return (
     <div>
-      <a href={selectedShop.url}>{selectedShop.name}</a>
+      <a
+        href={selectedShop.url}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {selectedShop.name}
+      </a>
       {buttons}
     </div>
   )
