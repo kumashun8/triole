@@ -1,1 +1,45 @@
 @import '../../variables/variables';
+
+.collectionWrapper {
+  list-style: none;
+  display: block;
+  position: relative;
+  right: 2.5rem;
+  width: 400px;
+  background-color: lighten($main, 51);
+  box-shadow: 2px 2px 4px $gray;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  .collection {
+    padding: 8px 24px;
+    width: 344px;
+    &_title {
+      border-bottom: 2px solid $main;
+      padding-bottom: 4px;
+    }
+    &_recommend {
+      width: 100%;
+      &_name {
+        display: inline-block;
+        width: 248px;
+        height: 1rem;
+        color: $main;
+        font-weight: $bold-weight;
+      }
+      &_price {
+        display: inline-block;
+        position: relative;
+        left: 48px;
+        width: 60px;
+        height: 1rem;
+      }
+      &_shop {
+        display: inline-block;
+        position: relative;
+        top: -16px;
+        margin: 0;
+        color: $accent;
+      }
+    }
+  }
+}

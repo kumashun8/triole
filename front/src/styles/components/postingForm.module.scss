@@ -4,6 +4,7 @@
   width: 480px;
   .collection {
     border: 2px solid $gray;
+    border-radius: 8px;
     padding: 40px 24px 16px;
     &_recommend {
       display: flex;
@@ -31,6 +32,8 @@
     background-color: $main;
     font-size: 1rem;
     font-weight: $bold-weight;
+    border-radius: 8px;
+    border: none;
     cursor: pointer;
   }
 }

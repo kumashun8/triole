@@ -42,7 +42,7 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
             ref={node => { title = node }}
           />
         </div>
-        <p className={Styles.marker}>オススメ1</p>    
+        <p className={Styles.marker}>レコメンド1</p>    
         <div className={Styles.collection_recommend}>
           <div className={Styles.collection_recommend_name}>
             <label>名前: </label>
@@ -65,7 +65,7 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
           </div>
         </div>
         <ShopWrapper />
-        <p className={Styles.marker}>オススメ2</p>  
+        <p className={Styles.marker}>レコメンド2</p>  
         <div className={Styles.collection_recommend}>
           <div className={Styles.collection_recommend_name}>
             <label>名前: </label>
@@ -88,7 +88,7 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
           </div>
         </div>
         <ShopWrapper2 />
-        <p className={Styles.marker}>オススメ3</p>  
+        <p className={Styles.marker}>レコメンド3</p>  
         <div className={Styles.collection_recommend}>
           <div className={Styles.collection_recommend_name}>
             <label>名前: </label>
