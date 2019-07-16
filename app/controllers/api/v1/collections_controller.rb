@@ -59,6 +59,7 @@ module Api
               recommends: [
                 :name,
                 :price,
+                :reco_image,
                 shop: [
                   :name,
                   :googlemap_link
