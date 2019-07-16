@@ -52,3 +52,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # 環境変数を使うため
 gem 'dotenv-rails'
+
+# 画像投稿のため
+gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
