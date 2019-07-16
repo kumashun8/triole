@@ -55,4 +55,4 @@ gem 'dotenv-rails'
 
 # 画像投稿のため
 gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
-gem 'rmagick', require: 'RMagick'
+gem 'rmagick', require: 'rmagick'
