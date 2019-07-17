@@ -5,4 +5,6 @@ class Recommend < ApplicationRecord
 
   belongs_to :collection
   has_one :shop
+
+  mount_uploader :reco_image, RecoImageUploader
 end

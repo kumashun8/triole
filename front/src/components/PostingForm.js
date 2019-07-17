@@ -16,7 +16,8 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
   let recommends = [
     {
       name: "",
-      price: ""
+      price: "",
+      reco_image: ""
     },
     {
       name: "",
@@ -61,6 +62,14 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
               max="10000000"
               step="100"
               ref={node => { recommends[0].price = node }}
+            />
+          </div>
+          <div className={Styles.collection_recommend_image}>
+            <label>写真: </label>
+            <input
+              onKeyPress={e => preventEnterKey()}
+              type="file"
+              ref={node => { recommends[0].reco_image = node }}
             />
           </div>
         </div>
@@ -121,6 +130,7 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
                 {
                   name: recommends[0].name.value,
                   price: recommends[0].price.value,
+                  reco_image: recommends[0].reco_image.value,
                   shop: {
                     name: shops[0].name,
                     googlemap_link: shops[0].url

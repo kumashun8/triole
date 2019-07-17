@@ -10,15 +10,20 @@ module Api
           recommend = Recommend.create(
             name: recommend_params[:name],
             price: recommend_params[:price],
+            reco_image: recommend_params[:reco_image],
             collection_id: @collection.id
           )
 
+          p "====--====----====----====----===="
+          p "\n"
+          p "\n"
+          p recommend
+          p "\n"
+          p "\n"
+          p "====--====----====----====----===="
+
           recommend.shop = Shop.create(recommend_params[:shop])
         end
-
-        p "--------"
-        p collection_params
-        p "--------"
 
         render json: @collection
       end
@@ -34,6 +39,7 @@ module Api
               {
                 name: recommend.name,
                 price: recommend.price,
+                reco_image: recommend.reco_image_url,
                 shop: {
                   name: recommend.shop.name,
                   googlemap_link: recommend.shop.googlemap_link 

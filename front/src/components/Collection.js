@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import Styles from '../styles/components/collection.module.scss'
+import image from '../../public/uploads/recommend/reco_image/1/20190717083852.jpg'
 
 const Collection = ({ collection }) => (
   <li className={Styles.collectionWrapper}>
@@ -18,6 +19,8 @@ const Collection = ({ collection }) => (
             >
               {recommend.shop.name}
           </a></p>
+          {console.log('../../public' +　recommend.reco_image)}
+          <img src={image} alt="Img" />
         </div>
       ))}
     </div>
