@@ -10,7 +10,7 @@ module Api
           recommend = Recommend.create(
             name: recommend_params[:name],
             price: recommend_params[:price],
-            reco_image: recommend_params[:reco_image],
+            reco_image: open("/Users/hayato_okuma/Downloads/IMG_1880.JPG"),
             collection_id: @collection.id
           )
 
@@ -39,7 +39,7 @@ module Api
               {
                 name: recommend.name,
                 price: recommend.price,
-                reco_image: recommend.reco_image_url,
+                reco_image: recommend.reco_image_url(:thumb),
                 shop: {
                   name: recommend.shop.name,
                   googlemap_link: recommend.shop.googlemap_link 

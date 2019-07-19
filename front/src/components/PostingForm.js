@@ -17,7 +17,7 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
     {
       name: "",
       price: "",
-      reco_image: ""
+      reco_image: {}
     },
     {
       name: "",
@@ -32,7 +32,12 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
   return (
     <div className={Styles.formWrapper}>
       <Headline title="投稿フォーム" />
-      <form className={Styles.collection} name="collectionForm">
+      <form
+        className={Styles.collection}
+        name="collectionForm"
+        method="post"
+        enctype="multipart/form-data"
+      >
         <div className={Styles.collection_title}>
           <label>コレクション名: </label>
           <input
@@ -67,9 +72,15 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
           <div className={Styles.collection_recommend_image}>
             <label>写真: </label>
             <input
+              name="fileName"
+              readOnly
+              type="text"
+              value=""
+            />
+            <input
               onKeyPress={e => preventEnterKey()}
               type="file"
-              ref={node => { recommends[0].reco_image = node }}
+              onChange={e => recommends[0].reco_image = e.target.files[0]}
             />
           </div>
         </div>
@@ -124,13 +135,14 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
           className={Styles.submitButton}
           type="button"
           onClick={e => {
+            console.log(recommends[0].reco_image)
             dispatchPostAction({
               title: title.value,
               recommends: [
                 {
                   name: recommends[0].name.value,
                   price: recommends[0].price.value,
-                  reco_image: recommends[0].reco_image.value,
+                  reco_image: recommends[0].reco_image,
                   shop: {
                     name: shops[0].name,
                     googlemap_link: shops[0].url
