@@ -18,7 +18,7 @@ const Collection = ({ collection }) => (
             >
               {recommend.shop.name}
           </a></p>
-          <img src="uploads/recommend/reco_image/1/thumb_20190723022817.jpg" alt="Img" />
+          <img src={recommend.reco_image} alt={recommend.reco_image} />
         </div>
       ))}
     </div>

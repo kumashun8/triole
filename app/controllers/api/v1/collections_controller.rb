@@ -10,7 +10,7 @@ module Api
           recommend = Recommend.create(
             name: recommend_params[:name],
             price: recommend_params[:price],
-            reco_image: open("/Users/hayato_okuma/Downloads/IMG_1880.JPG"),
+            reco_image: open(recommend_params[:reco_image]),
             collection_id: @collection.id
           )
 
