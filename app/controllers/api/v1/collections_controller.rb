@@ -7,10 +7,11 @@ module Api
         )
 
         collection_params[:recommends].each do |recommend_params|
-          recommend = Recommend.create(
+          p recommend_params[:reco_image]
+          recommend = Recommend.new(
             name: recommend_params[:name],
             price: recommend_params[:price],
-            reco_image: open(recommend_params[:reco_image]),
+            reco_image: recommend_params[:reco_image],
             collection_id: @collection.id
           )
 
@@ -21,8 +22,10 @@ module Api
           p "\n"
           p "\n"
           p "====--====----====----====----===="
-
-          recommend.shop = Shop.create(recommend_params[:shop])
+          if recommend.save
+            recommend.shop = Shop.create(recommend_params[:shop])
+          end
+          
         end
 
         render json: @collection
@@ -65,7 +68,7 @@ module Api
               recommends: [
                 :name,
                 :price,
-                :reco_image,
+                reco_image: [],
                 shop: [
                   :name,
                   :googlemap_link

@@ -21,11 +21,13 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
     },
     {
       name: "",
-      price: ""
+      price: "",
+      reco_image: {}
     },
     {
       name: "",
-      price: ""
+      price: "",
+      reco_image: {}
     }
   ]
 
@@ -72,14 +74,9 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
           <div className={Styles.collection_recommend_image}>
             <label>写真: </label>
             <input
-              name="fileName"
-              readOnly
-              type="text"
-              value=""
-            />
-            <input
               onKeyPress={e => preventEnterKey()}
               type="file"
+              multiple="true"
               onChange={e => recommends[0].reco_image = e.target.files[0]}
             />
           </div>
@@ -136,6 +133,9 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
           type="button"
           onClick={e => {
             console.log(recommends[0].reco_image)
+            const formData = new FormData()
+            formData.append("image", recommends[0].reco_image)
+            console.log(formData.values())
             dispatchPostAction({
               title: title.value,
               recommends: [
@@ -151,6 +151,7 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
                 {
                   name: recommends[1].name.value,
                   price: recommends[1].price.value,
+                  reco_image: recommends[0].reco_image,
                   shop: {
                     name: shops[1].name,
                     googlemap_link: shops[1].url
@@ -159,6 +160,7 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
                 {
                   name: recommends[2].name.value,
                   price: recommends[2].price.value,
+                  reco_image: recommends[0].reco_image,
                   shop: {
                     name: shops[2].name,
                     googlemap_link: shops[2].url
@@ -166,6 +168,7 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
                 },
               ]
             })
+            console.log(recommends)
             title.value = ""
             recommends.map(recommend => 
               recommend.name.value = recommend.price.value = ""
