@@ -1,6 +1,6 @@
 module Api
   module V1
-    class Api::V1::RecommendsController < ApplicationController
+    class RecommendsController < ApplicationController
       def create
         @recommend = Recommend.new
         @recommend.reco_image = params[:reco_image]

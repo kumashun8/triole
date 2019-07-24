@@ -1,32 +1,47 @@
 module Api
   module V1
-    class Api::V1::CollectionsController < ApplicationController
+    class CollectionsController < ApplicationController
       def create
-        @collection = Collection.create(
-          title: collection_params[:title]
+        @collection = Collection.create(title: params[:title])
+
+        recommend_1 = Recommend.new(
+          name: params[:reco_name_1],
+          price: params[:reco_price_1],
+          reco_image: params[:reco_image_1],
+          collection: @collection
         )
-
-        collection_params[:recommends].each do |recommend_params|
-          p recommend_params[:reco_image]
-          recommend = Recommend.new(
-            name: recommend_params[:name],
-            price: recommend_params[:price],
-            reco_image: recommend_params[:reco_image],
-            collection_id: @collection.id
+        if recommend_1.save
+          recommend_1.shop = Shop.create(
+            name: params[:shop_name_1],
+            googlemap_link: params[:shop_googlemap_link_1]
           )
-
-          p "====--====----====----====----===="
-          p "\n"
-          p "\n"
-          p recommend
-          p "\n"
-          p "\n"
-          p "====--====----====----====----===="
-          if recommend.save
-            recommend.shop = Shop.create(recommend_params[:shop])
-          end
-          
         end
+
+        # @collection = Collection.create(
+        #   title: collection_params[:title]
+        # )
+
+        # collection_params[:recommends].each do |recommend_params|
+        #   p recommend_params[:reco_image]
+        #   recommend = Recommend.new(
+        #     name: recommend_params[:name],
+        #     price: recommend_params[:price],
+        #     reco_image: recommend_params[:reco_image],
+        #     collection_id: @collection.id
+        #   )
+
+        #   p "====--====----====----====----===="
+        #   p "\n"
+        #   p "\n"
+        #   p recommend
+        #   p "\n"
+        #   p "\n"
+        #   p "====--====----====----====----===="
+        #   if recommend.save
+        #     recommend.shop = Shop.create(recommend_params[:shop])
+        #   end
+          
+        #  end
 
         render json: @collection
       end
@@ -42,7 +57,7 @@ module Api
               {
                 name: recommend.name,
                 price: recommend.price,
-                reco_image: recommend.reco_image_url(:thumb),
+                reco_image: recommend.fitted_image_url,
                 shop: {
                   name: recommend.shop.name,
                   googlemap_link: recommend.shop.googlemap_link 

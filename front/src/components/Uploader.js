@@ -4,14 +4,13 @@ import axios from 'axios';
 class Uploader extends React.Component {
 
   readFile(files) {
-    console.log(files[0])
     if (files && files[0]) {
       let formPayLoad = new FormData();
-      formPayLoad.append('reco_image', files[0]);
-      formPayLoad.append('name', "ハムタロサァン")
-      formPayLoad.append('price',114514)
+      formPayLoad.append('reco_image', files[0])
+      formPayLoad.append('name', "次郎丸")
+      formPayLoad.append('price', 230)
 
-      
+      console.log(formPayLoad.getAll('reco_image'))
       this.sendImageToController(formPayLoad)
     }
   }

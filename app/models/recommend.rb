@@ -7,4 +7,10 @@ class Recommend < ApplicationRecord
   has_one :shop
 
   mount_uploader :reco_image, RecoImageUploader
+
+  def fitted_image_url
+    splited_url = reco_image_url.split('/')
+    i = splited_url.index('uploads')
+    splited_url[i..].join('/')
+  end
 end

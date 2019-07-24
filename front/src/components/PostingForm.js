@@ -12,6 +12,24 @@ const preventEnterKey = () => {
   }
 }
 
+const getFormData = (title, recommends, shops) => {
+  let formPayLoad = new FormData()
+  formPayLoad.append('title', title.value)
+  recommends.map(function (recommend, i) {
+    formPayLoad.append(`reco_name_${i + 1}`, recommend.name.value)
+    formPayLoad.append(`reco_price_${i + 1}`, recommend.price.value)
+    formPayLoad.append(`shop_name_${i + 1}`, shops[i].name)
+    formPayLoad.append(`shop_googlemap_link_${i + 1}`, shops[i].url)
+    const files = recommend.reco_image
+    if (files && i === 0) {
+      formPayLoad.append(`reco_image_${i + 1}`, files)
+    }
+    return 0
+  })
+  return formPayLoad
+  
+} 
+
 const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearSelectedShop, shops }) => {
   let title
   let recommends = [
@@ -134,43 +152,8 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
           className={Styles.submitButton}
           type="button"
           onClick={e => {
-            console.log(recommends[0].reco_image)
-            const formData = new FormData()
-            formData.append("image", recommends[0].reco_image)
-            console.log(formData.values())
-            dispatchPostAction({
-              title: title.value,
-              recommends: [
-                {
-                  name: recommends[0].name.value,
-                  price: recommends[0].price.value,
-                  reco_image: recommends[0].reco_image,
-                  shop: {
-                    name: shops[0].name,
-                    googlemap_link: shops[0].url
-                  }
-                },
-                {
-                  name: recommends[1].name.value,
-                  price: recommends[1].price.value,
-                  reco_image: recommends[0].reco_image,
-                  shop: {
-                    name: shops[1].name,
-                    googlemap_link: shops[1].url
-                  }
-                },
-                {
-                  name: recommends[2].name.value,
-                  price: recommends[2].price.value,
-                  reco_image: recommends[0].reco_image,
-                  shop: {
-                    name: shops[2].name,
-                    googlemap_link: shops[2].url
-                  }
-                },
-              ]
-            })
-            console.log(recommends)
+            const formData = getFormData(title, recommends, shops)
+            dispatchPostAction(formData)
             title.value = ""
             recommends.map(recommend => 
               recommend.name.value = recommend.price.value = ""

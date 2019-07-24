@@ -30,9 +30,7 @@ export const postCollection = (collection) => {
   return (dispatch) => {
     dispatch(postCollectionRequest())
     return axios.post(process.env.REACT_APP_API_URI + '/api/v1/collections/',
-      {
-        collection: collection
-      })
+      collection)
       .then(res => {
         // console.log(res)
         dispatch(postCollectionSuccess(res))
