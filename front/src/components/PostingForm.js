@@ -4,7 +4,6 @@ import ShopWrapper2 from './ShopWrapper2'
 import ShopWrapper3 from './ShopWrapper3'
 import Headline from './Headline'
 import Styles from '../styles/components/postingForm.module.scss'
-import Uploader from './Uploader'
 
 const preventEnterKey = () => {
   if (window.event.keyCode === 13) {
@@ -27,7 +26,6 @@ const getFormData = (title, recommends, shops) => {
     return 0
   })
   return formPayLoad
-  
 } 
 
 const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearSelectedShop, shops }) => {
@@ -50,10 +48,12 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
     }
   ]
 
+  const ShopWrappers = [<ShopWrapper />, <ShopWrapper2 />, <ShopWrapper3 />]
+  
+
   return (
     <div className={Styles.formWrapper}>
       <Headline title="投稿フォーム" />
-      <Uploader/>
       <form
         className={Styles.collection}
         name="collectionForm"
@@ -70,84 +70,42 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
             ref={node => { title = node }}
           />
         </div>
-        <p className={Styles.marker}>レコメンド1</p>    
-        <div className={Styles.collection_recommend}>
-          <div className={Styles.collection_recommend_name}>
-            <label>名前: </label>
-            <input
-              placeholder="30文字以内"
-              onKeyPress={e => preventEnterKey()}
-              ref={node => { recommends[0].name = node }}
-            />
+        {ShopWrappers.map((ShopWrapper, i) => (
+          <div>
+            <p className={Styles.marker}>{`レコメンド${i+1}`}</p>
+            <div className={Styles.collection_recommend}>
+              <div className={Styles.collection_recommend_name}>
+                <label>名前: </label>
+                <input
+                  placeholder="30文字以内"
+                  onKeyPress={e => preventEnterKey()}
+                  ref={node => { recommends[i].name = node }}
+                />
+              </div>
+              <div className={Styles.collection_recommend_price}>
+                <label>値段[円]: </label>
+                <input
+                  onKeyPress={e => preventEnterKey()}
+                  type="number"
+                  min="0"
+                  max="10000000"
+                  step="100"
+                  ref={node => { recommends[i].price = node }}
+                />
+              </div>
+              <div className={Styles.collection_recommend_image}>
+                <label>写真: </label>
+                <input
+                  onKeyPress={e => preventEnterKey()}
+                  type="file"
+                  multiple="true"
+                  onChange={e => recommends[i].reco_image = e.target.files[0]}
+                />
+              </div>
+            </div>
+            {ShopWrapper}
           </div>
-          <div className={Styles.collection_recommend_price}>
-            <label>値段[円]: </label>
-            <input
-              onKeyPress={e => preventEnterKey()}
-              type="number"
-              min="0"
-              max="10000000"
-              step="100"
-              ref={node => { recommends[0].price = node }}
-            />
-          </div>
-          <div className={Styles.collection_recommend_image}>
-            <label>写真: </label>
-            <input
-              onKeyPress={e => preventEnterKey()}
-              type="file"
-              multiple="true"
-              onChange={e => recommends[0].reco_image = e.target.files[0]}
-            />
-          </div>
-        </div>
-        <ShopWrapper />
-        <p className={Styles.marker}>レコメンド2</p>  
-        <div className={Styles.collection_recommend}>
-          <div className={Styles.collection_recommend_name}>
-            <label>名前: </label>
-            <input
-              placeholder="30文字以内"
-              onKeyPress={e => preventEnterKey()}
-              ref={node => { recommends[1].name = node }}
-            />
-          </div>
-          <div className={Styles.collection_recommend_price}>
-            <label>値段[円]: </label>
-            <input
-              onKeyPress={e => preventEnterKey()}
-              type="number"
-              min="0"
-              max="10000000"
-              step="100"
-              ref={node => { recommends[1].price = node }}
-            />
-          </div>
-        </div>
-        <ShopWrapper2 />
-        <p className={Styles.marker}>レコメンド3</p>  
-        <div className={Styles.collection_recommend}>
-          <div className={Styles.collection_recommend_name}>
-            <label>名前: </label>
-            <input
-              placeholder="30文字以内"
-              onKeyPress={e => preventEnterKey()}
-              ref={node => { recommends[2].name = node }}
-            />
-          </div>
-          <div className={Styles.collection_recommend_price}>
-            <label>値段[円]: </label>
-            <input
-              onKeyPress={e => preventEnterKey()}
-              type="number"
-              min="0"
-              max="10000000"
-              step="100"
-              ref={node => { recommends[2].price = node }}
-            />
-          </div>
-        </div>
-        <ShopWrapper3 />
+        ))}
         <button
           className={Styles.submitButton}
           type="button"
