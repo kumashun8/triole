@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios';
 
 class Uploader extends React.Component {
 
@@ -17,13 +18,17 @@ class Uploader extends React.Component {
 
   sendImageToController(formPayLoad) {
     console.log("hoge")
-    fetch(process.env.REACT_APP_API_URI + '/api/v1/recommends/', {
-      credentials: 'same-origin',
-      headers: {},
-      method: 'POST',
-      body: formPayLoad
+    axios.post(process.env.REACT_APP_API_URI + '/api/v1/recommends/', formPayLoad)
+      .then(res => {
+      console.log(res)
     })
-      .then(responce => console.log(responce))
+    // fetch(process.env.REACT_APP_API_URI + '/api/v1/recommends/', {
+    //   credentials: 'same-origin',
+    //   headers: {},
+    //   method: 'POST',
+    //   body: formPayLoad
+    // })
+    //   .then(responce => console.log(responce))
   }
 
   render() {
