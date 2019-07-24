@@ -4,6 +4,7 @@ import ShopWrapper2 from './ShopWrapper2'
 import ShopWrapper3 from './ShopWrapper3'
 import Headline from './Headline'
 import Styles from '../styles/components/postingForm.module.scss'
+import Uploader from './Uploader'
 
 const preventEnterKey = () => {
   if (window.event.keyCode === 13) {
@@ -34,6 +35,7 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
   return (
     <div className={Styles.formWrapper}>
       <Headline title="投稿フォーム" />
+      <Uploader/>
       <form
         className={Styles.collection}
         name="collectionForm"
