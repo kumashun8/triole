@@ -8,7 +8,7 @@ export const togglePostingForm = () => ({
 })
 
 export const toggleCollectionDetail = (index) => ({
-  type: 'TOGGLE_POSTING_FORM',
+  type: 'TOGGLE_COLLECTION_DETAIL',
   index
 })
 

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=M+PLUS+1p:400,800&display=swap&subset=japanese');
 
 body {
+  height: 100%;
   margin: 0 auto;
   background-color: #f7f7f7;
   color: #333;

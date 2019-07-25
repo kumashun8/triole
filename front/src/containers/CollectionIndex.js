@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { getCollections } from '../actions/index'
+import { toggleCollectionDetail } from '../actions/show'
 import CollectionList from '../components/CollectionList'
 
 const mapStateToProps = state => {
@@ -12,7 +12,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  dispatchGetAction: value => dispatch(getCollections())
+  dispatchToggleAction: index => dispatch(toggleCollectionDetail(index))
 })
 
 const CollectionIndex = connect(

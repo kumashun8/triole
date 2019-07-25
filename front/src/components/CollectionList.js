@@ -2,18 +2,24 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Collection from './Collection'
 import Headline from './Headline'
+import Styles from '../styles/components/collectionList.module.scss'
 
-const CollectionList = ({ collections, dispatchGetAction }) => {
+const CollectionList = ({ collections, dispatchToggleAction }) => {
   if (collections === void 0) {
     return(<div></div>)
   } 
 
   return (
-    <div>
+    <div className={Styles.collectionList}>
       <Headline title="コレクション一覧" />
       <ul>
         {collections.map((collection, index) => (
-          <Collection key={index} collection={collection} index={index} />
+          <Collection
+            key={index}
+            index={index}
+            collection={collection}
+            handleToggle={dispatchToggleAction}
+          />
         ))}
       </ul>
     </div>
@@ -26,8 +32,7 @@ CollectionList.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired
     }).isRequired
-  ).isRequired,
-  dispatchGetAction: PropTypes.func.isRequired
+  ).isRequired
 }
 
 export default CollectionList
