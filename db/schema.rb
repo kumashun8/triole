@@ -40,6 +40,6 @@ ActiveRecord::Schema.define(version: 2019_07_25_121934) do
     t.index ["recommend_id"], name: "index_shops_on_recommend_id"
   end
 
-  add_foreign_key "recommends", "collections"
+   add_foreign_key "recommends", "collections"
   add_foreign_key "shops", "recommends"
 end
