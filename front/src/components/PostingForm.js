@@ -9,9 +9,10 @@ const preventEnterKey = () => {
   return window.event.keyCode === 13
 }
 
-const getFormData = (title, recommends, shops) => {
+const getFormData = (title, description, recommends, shops) => {
   let formPayLoad = new FormData()
   formPayLoad.append('title', title.value)
+  formPayLoad.append('description', description.value)
   recommends.map(function (recommend, i) {
     formPayLoad.append(`reco_name_${i + 1}`, recommend.name.value)
     formPayLoad.append(`reco_price_${i + 1}`, recommend.price.value)
@@ -27,7 +28,7 @@ const getFormData = (title, recommends, shops) => {
 } 
 
 const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearSelectedShop, shops }) => {
-  let title
+  let title, description
   let recommends = [
     {
       name: "",
@@ -66,6 +67,12 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
             placeholder="30文字以内"
             onKeyPress={e => preventEnterKey()}
             ref={node => { title = node }}
+          />
+        </div>
+        <div className={Styles.collection_description}>
+          <label>説明: </label>
+          <textarea
+            ref={node => {description = node}}
           />
         </div>
         {ShopWrappers.map((ShopWrapper, i) => (
@@ -108,7 +115,7 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
           className={Styles.submitButton}
           type="button"
           onClick={e => {
-            const formData = getFormData(title, recommends, shops)
+            const formData = getFormData(title, description, recommends, shops)
             dispatchPostAction(formData)
             title.value = ""
             recommends.map(recommend => 

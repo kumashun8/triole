@@ -6,6 +6,7 @@ const Collection = ({ collection }) => (
   <li className={Styles.collectionWrapper}>
     <div className={Styles.collection}>
       <h2 className={Styles.collection_title}>{collection.title}</h2>
+      <p className={Styles.collection_description}>{collection.description}</p>
       {collection.recommends.map( (recommend, index) => (
         <div className={Styles.collection_recommend}>
           <p className={Styles.collection_recommend_name}>{index+1}. {recommend.name}</p>

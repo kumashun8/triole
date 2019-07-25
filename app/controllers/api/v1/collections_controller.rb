@@ -2,7 +2,10 @@ module Api
   module V1
     class CollectionsController < ApplicationController
       def create
-        @collection = Collection.create(title: params[:title])
+        @collection = Collection.create(
+          title: params[:title],
+          description: params[:description]
+        )
 
         recommend_1 = Recommend.new(
           name: params[:reco_name_1],
@@ -72,6 +75,7 @@ module Api
           end
           @collections.push({
             title: collection.title,
+            description: collection.description,
             recommends: shopIncludingRecommends
           })
         end
