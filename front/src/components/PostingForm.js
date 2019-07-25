@@ -6,10 +6,7 @@ import Headline from './Headline'
 import Styles from '../styles/components/postingForm.module.scss'
 
 const preventEnterKey = () => {
-  console.log(window.event.keyCode)
-  if (window.event.keyCode === 13) {
-    return false
-  }
+  return window.event.keyCode === 13
 }
 
 const getFormData = (title, recommends, shops) => {
