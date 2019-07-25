@@ -5,15 +5,14 @@
   .collection_preview {
     position: relative;
     right: 2.5rem;
-    display: block;
     .collection {
-      width: 400px;
       background-color: lighten($main, 51);
       box-shadow: 2px 2px 4px $gray;
       border-radius: 8px;
       margin-bottom: 40px; 
       padding: 8px 24px;
-      width: 344px;
+      width: 320px;
+      height: 144px;
       &_title {
         border-bottom: 2px solid $main;
         padding-bottom: 4px;

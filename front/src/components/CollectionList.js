@@ -10,9 +10,9 @@ const CollectionList = ({ collections, dispatchToggleAction }) => {
   } 
 
   return (
-    <div className={Styles.collectionList}>
+    <div>
       <Headline title="コレクション一覧" />
-      <ul>
+      <ul className={Styles.collectionList}>
         {collections.map((collection, index) => (
           <Collection
             key={index}
