@@ -7,8 +7,9 @@ const SearchInput = ({ dispatchGetAction, index }) => {
     <div>
       <label>お店: </label>
       <input
-          placeholder="店舗名を検索"
-          onChange={e => {
+        id={`searchInput${index}`}
+        placeholder="店舗名を検索"
+        onChange={e => {
           e.preventDefault()
           if (!input.value.trim()) {
             return

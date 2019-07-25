@@ -6,6 +6,11 @@ const initialState = {
   items: [[],[],[]]
 }
 
+const clearSearchInput = (index) => {
+  const target = `searchInput${index}`
+  document.getElementById(target).value = ""
+}
+
 const shopList = (state = [initialState], action) => {
   const length = state.length
   const currentState = state[length - 1]
@@ -40,6 +45,7 @@ const shopList = (state = [initialState], action) => {
       ]
     case SearchStatuses.CLEAR_SHOP_LIST:
       newItems[action.index - 1] = []
+      clearSearchInput(action.index)
       return [
         ...state,
         {
