@@ -19,31 +19,35 @@ module Api
           @collection.destroy
         end
 
-        # @collection = Collection.create(
-        #   title: collection_params[:title]
-        # )
+        recommend_2 = Recommend.new(
+          name: params[:reco_name_2],
+          price: params[:reco_price_2],
+          reco_image: params[:reco_image_2],
+          collection: @collection
+        )
+        if recommend_2.save
+          recommend_2.shop = Shop.create(
+            name: params[:shop_name_2],
+            googlemap_link: params[:shop_googlemap_link_2]
+          )
+        else
+          @collection.destroy
+        end
 
-        # collection_params[:recommends].each do |recommend_params|
-        #   p recommend_params[:reco_image]
-        #   recommend = Recommend.new(
-        #     name: recommend_params[:name],
-        #     price: recommend_params[:price],
-        #     reco_image: recommend_params[:reco_image],
-        #     collection_id: @collection.id
-        #   )
-
-        #   p "====--====----====----====----===="
-        #   p "\n"
-        #   p "\n"
-        #   p recommend
-        #   p "\n"
-        #   p "\n"
-        #   p "====--====----====----====----===="
-        #   if recommend.save
-        #     recommend.shop = Shop.create(recommend_params[:shop])
-        #   end
-          
-        #  end
+        recommend_3 = Recommend.new(
+          name: params[:reco_name_3],
+          price: params[:reco_price_3],
+          reco_image: params[:reco_image_3],
+          collection: @collection
+        )
+        if recommend_3.save
+          recommend_3.shop = Shop.create(
+            name: params[:shop_name_3],
+            googlemap_link: params[:shop_googlemap_link_3]
+          )
+        else
+          @collection.destroy
+        end
 
         render json: @collection
       end
@@ -54,7 +58,6 @@ module Api
         collections.each do |collection|
           shopIncludingRecommends = []
           collection.recommends.each do |recommend|
-            p recommend.shop.name
             shopIncludingRecommends.push(
               {
                 name: recommend.name,

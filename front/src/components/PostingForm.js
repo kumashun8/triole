@@ -18,7 +18,7 @@ const getFormData = (title, recommends, shops) => {
     formPayLoad.append(`shop_name_${i + 1}`, shops[i].name)
     formPayLoad.append(`shop_googlemap_link_${i + 1}`, shops[i].url)
     const files = recommend.reco_image
-    if (files && i === 0) {
+    if (files) {
       formPayLoad.append(`reco_image_${i + 1}`, files)
     }
     return 0
