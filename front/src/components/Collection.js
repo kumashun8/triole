@@ -2,12 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import Styles from '../styles/components/collection.module.scss'
 
-const Collection = ({ collection }) => (
-  <li className={Styles.collectionWrapper}>
+const Collection = ({ collection, index }) => (
+  <li className={Styles.collectionWrapper} id={index+1}>
     <div className={Styles.collection}>
       <h2 className={Styles.collection_title}>{collection.title}</h2>
       <p className={Styles.collection_description}>{collection.description}</p>
-      {collection.recommends.map( (recommend, index) => (
+      <div className={Styles.collection_recommends}>
+      {collection.recommends.map((recommend, index) => (
         <div className={Styles.collection_recommend}>
           <p className={Styles.collection_recommend_name}>{index+1}. {recommend.name}</p>
           <p className={Styles.collection_recommend_price}>{recommend.price}円</p>
@@ -22,6 +23,7 @@ const Collection = ({ collection }) => (
           <img src={recommend.reco_image} alt={recommend.reco_image} width={200} height={200} />
         </div>
       ))}
+      </div>
     </div>
   </li>
 )

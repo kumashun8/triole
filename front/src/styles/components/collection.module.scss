@@ -17,6 +17,9 @@
       border-bottom: 2px solid $main;
       padding-bottom: 4px;
     }
+    &_recommends {
+      display: none;
+    }
     &_recommend {
       width: 100%;
       &_name {

@@ -13,7 +13,7 @@ const CollectionList = ({ collections, dispatchGetAction }) => {
       <Headline title="コレクション一覧" />
       <ul>
         {collections.map((collection, index) => (
-          <Collection key={index} collection={collection} />
+          <Collection key={index} collection={collection} index={index} />
         ))}
       </ul>
     </div>
