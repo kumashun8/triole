@@ -6,8 +6,9 @@ import Headline from './Headline'
 import Styles from '../styles/components/postingForm.module.scss'
 
 const preventEnterKey = () => {
+  console.log(window.event.keyCode)
   if (window.event.keyCode === 13) {
-    document.collectionForm.submit()
+    return false
   }
 }
 
@@ -123,11 +124,8 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
           }}
         >
           投稿!!
-      </button>
-
+        </button>
       </form>
-
-      
     </div>
   )
 }

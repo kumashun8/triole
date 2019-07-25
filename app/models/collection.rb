@@ -1,5 +1,5 @@
 class Collection < ApplicationRecord
   validates :title, {presence: true, length: {maximum: 30}}
 
-  has_many :recommends
+  has_many :recommends, dependent: :destroy
 end

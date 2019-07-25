@@ -15,6 +15,8 @@ module Api
             name: params[:shop_name_1],
             googlemap_link: params[:shop_googlemap_link_1]
           )
+        else
+          @collection.destroy
         end
 
         # @collection = Collection.create(

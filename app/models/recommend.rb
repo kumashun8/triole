@@ -4,7 +4,7 @@ class Recommend < ApplicationRecord
   validates :description, {length: {maximum: 120}}
 
   belongs_to :collection
-  has_one :shop
+  has_one :shop, dependent: :destroy
 
   mount_uploader :reco_image, RecoImageUploader
 
