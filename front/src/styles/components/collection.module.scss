@@ -3,8 +3,6 @@
 .collectionWrapper {
   list-style: none;
   .collection_preview {
-    position: relative;
-    right: 2.5rem;
     .collection {
       background-color: lighten($main, 51);
       box-shadow: 2px 2px 4px $gray;
