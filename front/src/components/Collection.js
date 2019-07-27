@@ -3,16 +3,13 @@ import PropTypes from 'prop-types';
 import Styles from '../styles/components/collection.module.scss'
 
 const Collection = ({ collection, index, handleToggle }) => (
-  <li
-    className={Styles.collectionWrapper}
-  >
-    {/* handleToggle(index+1) */}
+  <li className={Styles.collectionWrapper}>
     <div
       className={Styles.collection_preview}
       onClick={e => document.getElementById(index+1).style.display = "block"}
     >
       <div className={Styles.collection}>
-        <h2 className={Styles.collection_title}>{collection.title}</h2>
+        <p className={Styles.collection_title}>{collection.title}</p>
         <p className={Styles.collection_description}>{collection.description}</p>
       </div>
     </div>
@@ -44,8 +41,6 @@ const Collection = ({ collection, index, handleToggle }) => (
         </div>
       </div>
     </div>
-
-
   </li>
 )
 

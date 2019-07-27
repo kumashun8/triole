@@ -5,18 +5,44 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-collcetion = Collection.create(title: "サンプルだお")
-[1,2,3].each do |i|
+10.times do |i|
+  collcetion = Collection.create(
+    title: "おすすめラーメン3選",
+    description: "2019年前半で食べたラーメンから、印象に残ったものをピックアップ。"
+  )
   recommend = Recommend.create(
-    name: i.to_s,
-    price: i * 100,
-    reco_image: open("#{Rails.root}/db/sample/sample01.jpg"),
+    name: "唐揚げ乗せ味噌ラーメン",
+    price: 900,
+    reco_image: open("#{Rails.root}/db/sample/sample02.jpg"),
     collection_id: Collection.last.id
   )
   recommend.shop = Shop.create(
-    name: "どこか",
-    googlemap_link: "https://maps.google.com/?cid=11668355302196308635"
+    name: "ラーメンとうせんぼ",
+    googlemap_link: "https://maps.google.com/?cid=2919324887577189048"
   )
+
+  recommend2 = Recommend.create(
+    name: "きたなトラン的な豚骨ラーメン",
+    price: 750,
+    reco_image: open("#{Rails.root}/db/sample/sample03.jpg"),
+    collection_id: Collection.last.id
+  )
+  recommend2.shop = Shop.create(
+    name: "乙姫ラーメン",
+    googlemap_link: "https://maps.google.com/?cid=1451368866080092245"
+  )
+  
+  recommend3 = Recommend.create(
+    name: "オファー面談後に食べたラーメン",
+    price: 850,
+    reco_image: open("#{Rails.root}/db/sample/sample04.jpg"),
+    collection_id: Collection.last.id
+  )
+  recommend3.shop = Shop.create(
+    name: "ラーメン魁力屋 五反田店",
+    googlemap_link: "https://maps.google.com/?cid=11501312251885737951"
+  )
+
+  
 end 
 
