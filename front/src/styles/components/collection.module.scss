@@ -6,28 +6,30 @@
   // border-radius: 8px;
   margin: -1.2rem;
   padding: 0 24px;
-  &_recommend {
+  .recommend {
     width: 100%;
-    &_name {
-      display: inline-block;
-      width: 248px;
-      height: 1rem;
-      color: $main;
-      font-weight: $bold-weight;
-    }
-    &_price {
-      display: inline-block;
-      // position: relative;
-      // left: 48px;
-      width: 60px;
-      height: 1rem;
-    }
-    &_shop {
-      display: inline-block;
-      position: relative;
-      top: -16px;
-      margin: 0;
-      color: $accent;
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    &_text {
+      width: 440px;
+      &_name {
+        display: inline-block;
+        line-height: 1.9rem;
+        font-size: 1.5rem;
+        color: $main;
+        font-weight: $bold-weight;
+      }
+      &_price {
+        padding-top: 8px;
+        font-size: 1.2rem;
+        line-height: 1.4rem;
+      }
+      &_shop {
+        font-size: 1.2rem;
+        line-height: 1.4rem;
+        color: $accent;
+      }
     }
   }
 }
