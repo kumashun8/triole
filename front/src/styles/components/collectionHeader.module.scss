@@ -1,0 +1,18 @@
+@import '../../variables/variables';
+
+.collectionHeader {
+  text-align: left;
+  width: 680px;
+  height: 80px;
+  padding: 8px;
+  margin: 24px;
+  &_title {
+    border-bottom: 2px solid $main;
+    padding-bottom: 4px;
+    font-size: 1.2rem;
+  }
+  &_description {
+    font-size: 0.8rem;
+    color: $dark-gray;
+  }
+}
