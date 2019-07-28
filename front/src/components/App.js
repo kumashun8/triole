@@ -6,7 +6,7 @@ import Styles from '../styles/components/app.module.scss'
 class App extends React.Component {
   render() {
     return (
-      <div className={Styles.app}>
+      <div className={Styles.app} id='app'>
         <CollectionPostInput />
         <CollectionIndex />
       </div>

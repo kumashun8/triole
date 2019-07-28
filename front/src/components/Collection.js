@@ -2,22 +2,20 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import Styles from '../styles/components/collection.module.scss'
 
-const Collection = ({ collection, index, handleToggle }) => (
+const Collection = ({ collection, activeCollection, index, handleToggle }) => (
   <li className={Styles.collectionWrapper}>
     <div
       className={Styles.collection_preview}
-      onClick={e => document.getElementById(index+1).style.display = "block"}
+      onClick={e => handleToggle(index+1)}
     >
       <div className={Styles.collection}>
         <p className={Styles.collection_title}>{collection.title}</p>
         <p className={Styles.collection_description}>{collection.description}</p>
       </div>
     </div>
-
     <div
       className={Styles.collection_detail}
       id={index + 1}
-      onClick={e => document.getElementById(index+1).style.display = "none"}
     >
       <div className={Styles.collection}>
         <h2 className={Styles.collection_title}>{collection.title}</h2>

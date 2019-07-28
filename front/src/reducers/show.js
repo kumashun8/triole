@@ -18,7 +18,6 @@ const show = (state = [initalState], action) => {
         }
       ]
     case ShowStatuses.TOGGLE_COLLECTION_DETAIL:
-      document.getElementById(action.index.toString()).style.display = "none"
       return [
         ...state,
         {

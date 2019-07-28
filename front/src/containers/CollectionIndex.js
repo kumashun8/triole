@@ -5,14 +5,21 @@ import CollectionList from '../components/CollectionList'
 const mapStateToProps = state => {
   const length = state.index.length
   const currentState = state.index[length - 1]
-  // console.log(currentState)
+  const length2 = state.show.length
+  const currentState2 = state.show[length2 - 1]
+  console.log(currentState2)
   return {
-    collections: currentState.collections
+    collections: currentState.collections,
+    activeCollection: currentState2.activeCollection
   }
 }
 
+
 const mapDispatchToProps = dispatch => ({
-  dispatchToggleAction: index => dispatch(toggleCollectionDetail(index))
+  dispatchToggleAction: index => {
+    dispatch(toggleCollectionDetail(index))
+    document.getElementById(index).style.display = "block"
+  }
 })
 
 const CollectionIndex = connect(

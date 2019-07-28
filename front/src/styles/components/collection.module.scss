@@ -27,13 +27,13 @@
   .collection_detail {
     z-index: 5;
     display: none;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     box-sizing: border-box;
-    background-color: rgba($gray, 0.5);
+    // background-color: rgba($gray, 0.5);
     .collection {
       z-index: 10;
       display: block;

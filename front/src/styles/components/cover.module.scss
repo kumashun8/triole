@@ -1,0 +1,12 @@
+@import '../../variables/variables';
+
+.wrapper {
+  height: auto;
+  background-color: $gray;
+}
+
+.cover {
+  width: 100%;
+  background-color: $accent;
+  z-index: 5;
+}
