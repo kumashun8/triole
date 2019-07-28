@@ -4,7 +4,12 @@ import ShopWrapper2 from './ShopWrapper2'
 import ShopWrapper3 from './ShopWrapper3'
 import Headline from './Headline'
 import Styles from '../styles/components/postingForm.module.scss'
-import { Form, Button } from 'react-bootstrap'
+import {
+  Form,
+  Button,
+  Accordion,
+  Card
+} from 'react-bootstrap'
 
 
 const preventEnterKey = () => {
@@ -65,20 +70,38 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
           <Form.Label>説明</Form.Label>
           <Form.Control as="textarea" placeholder="120文字以内"/>
         </Form.Group>
-        {ShopWrappers.map((ShopWrapper, i) => (
-          <div>
-            <p className={Styles.marker}>{`レコメンド${i + 1}`}</p>
-            <Form.Group>
-              <Form.Label>名前</Form.Label>
-              <Form.Control type="text" placeholder="30文字以内" />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>値段 [円]</Form.Label>
-              <Form.Control type="number" />
-            </Form.Group>
-            {ShopWrapper}
-          </div>
-        ))}
+        <Accordion>
+          {ShopWrappers.map((ShopWrapper, i) => (
+            <Card>
+              <Card.Header>
+                <Accordion.Toggle
+                  eventKey={i + 1}
+                  as={Button}
+                  variant="light"
+                  className={Styles.marker}
+                >
+                  {i === 0 ?
+                    `レコメンド${i + 1} (必須)` :
+                    `レコメンド${i + 1} `
+                  }
+                </Accordion.Toggle>
+              </Card.Header>
+              <Accordion.Collapse eventKey={i + 1}>
+                <Card.Body>
+                  <Form.Group>
+                    <Form.Label>名前</Form.Label>
+                    <Form.Control type="text" placeholder="30文字以内" />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>値段 [円]</Form.Label>
+                    <Form.Control type="number" />
+                  </Form.Group>
+                  {ShopWrapper}
+                </Card.Body>
+              </Accordion.Collapse>
+            </Card>
+          ))}
+        </Accordion>
         <Button type="button" className={Styles.submitButton}>
           投稿!!
         </Button>

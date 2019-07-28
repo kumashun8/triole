@@ -18,8 +18,11 @@
   .marker {
     color: $main;
     font-weight: $bold-weight;
-    border-bottom: 2px solid $gray;
-    margin-top: 40px;
+    margin: -1rem;
+    height: 40px;
+    width: 75%;
+    text-align: left;
+    
   }
 
   .submitButton {
