@@ -22,7 +22,11 @@ const CollectionList = ({ collections, dispatchToggleAction }) => {
         {collections.map((collection, index) => (
           <Card>
             <Card.Header>
-              <Accordion.Toggle eventKey={index + 1} as={Button} variant="light">
+              <Accordion.Toggle
+                eventKey={index + 1}
+                as={Button}
+                variant="light"
+              >
                 <CollectionHeader collection={collection} />
               </Accordion.Toggle>
             </Card.Header>
@@ -36,9 +40,7 @@ const CollectionList = ({ collections, dispatchToggleAction }) => {
                   />
               </Card.Body>
             </Accordion.Collapse>
-           
           </Card>
-          
         ))}
       </Accordion>
     </div>

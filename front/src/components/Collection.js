@@ -7,7 +7,7 @@ import Card from 'react-bootstrap/Card'
 import { ListGroup } from 'react-bootstrap';
 
 const Collection = ({ collection, activeCollection, index, handleToggle }) => (
-  <div>
+  <div className={Styles.collection}>
     {collection.recommends.map((recommend, index) => (
     <div className={Styles.collection_recommend}>
       <p className={Styles.collection_recommend_name}>{index+1}. {recommend.name}</p>
