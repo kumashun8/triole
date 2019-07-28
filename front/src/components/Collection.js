@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Styles from '../styles/components/collection.module.scss'
 import { Image } from 'react-bootstrap'
 
-const Collection = ({ collection, activeCollection, index, handleToggle }) => (
+const Collection = ({ collection }) => (
   <div className={Styles.collection}>
     {collection.recommends.map((recommend, index) => (
       <div className={Styles.recommend}>

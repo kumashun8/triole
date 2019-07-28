@@ -10,7 +10,7 @@ import {
   Card
 } from 'react-bootstrap'
 
-const CollectionList = ({ collections, dispatchToggleAction }) => {
+const CollectionList = ({ collections }) => {
   if (collections === void 0) {
     return(<div></div>)
   } 
@@ -36,7 +36,6 @@ const CollectionList = ({ collections, dispatchToggleAction }) => {
                     key={index}
                     index={index}
                     collection={collection}
-                    handleToggle={dispatchToggleAction}
                   />
               </Card.Body>
             </Accordion.Collapse>
