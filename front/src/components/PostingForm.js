@@ -4,6 +4,8 @@ import ShopWrapper2 from './ShopWrapper2'
 import ShopWrapper3 from './ShopWrapper3'
 import Headline from './Headline'
 import Styles from '../styles/components/postingForm.module.scss'
+import { Form, Button } from 'react-bootstrap'
+
 
 const preventEnterKey = () => {
   return window.event.keyCode === 13
@@ -54,84 +56,117 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
   return (
     <div className={Styles.formWrapper}>
       <Headline title="投稿フォーム" />
-      <form
-        className={Styles.collection}
-        name="collectionForm"
-        method="post"
-        enctype="multipart/form-data"
-      >
-        <div className={Styles.collection_title}>
-          <label>コレクション名: </label>
-          <input
-            size="48"
-            maxLength="30"
-            placeholder="30文字以内"
-            onKeyPress={e => preventEnterKey()}
-            ref={node => { title = node }}
-          />
-        </div>
-        <div className={Styles.collection_description}>
-          <label>説明: </label>
-          <textarea
-            ref={node => {description = node}}
-          />
-        </div>
+      <Form className={Styles.collection}>
+        <Form.Group controlId="formGroupText">
+          <Form.Label>コレクション名</Form.Label>
+          <Form.Control type="text" placeholder="30文字以内"/>
+        </Form.Group>
+        <Form.Group controlId="formGroupTextArea">
+          <Form.Label>説明</Form.Label>
+          <Form.Control as="textarea" placeholder="120文字以内"/>
+        </Form.Group>
         {ShopWrappers.map((ShopWrapper, i) => (
           <div>
-            <p className={Styles.marker}>{`レコメンド${i+1}`}</p>
-            <div className={Styles.collection_recommend}>
-              <div className={Styles.collection_recommend_name}>
-                <label>名前: </label>
-                <input
-                  placeholder="30文字以内"
-                  onKeyPress={e => preventEnterKey()}
-                  ref={node => { recommends[i].name = node }}
-                />
-              </div>
-              <div className={Styles.collection_recommend_price}>
-                <label>値段[円]: </label>
-                <input
-                  onKeyPress={e => preventEnterKey()}
-                  type="number"
-                  min="0"
-                  max="10000000"
-                  step="100"
-                  ref={node => { recommends[i].price = node }}
-                />
-              </div>
-              <div className={Styles.collection_recommend_image}>
-                <label>写真: </label>
-                <input
-                  onKeyPress={e => preventEnterKey()}
-                  type="file"
-                  multiple="true"
-                  onChange={e => recommends[i].reco_image = e.target.files[0]}
-                />
-              </div>
-            </div>
+            <p className={Styles.marker}>{`レコメンド${i + 1}`}</p>
+            <Form.Group>
+              <Form.Label>名前</Form.Label>
+              <Form.Control type="text" placeholder="30文字以内" />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>値段 [円]</Form.Label>
+              <Form.Control type="number" />
+            </Form.Group>
             {ShopWrapper}
           </div>
         ))}
-        <button
-          className={Styles.submitButton}
-          type="button"
-          onClick={e => {
-            const formData = getFormData(title, description, recommends, shops)
-            dispatchPostAction(formData)
-            title.value = ""
-            recommends.map(recommend => 
-              recommend.name.value = recommend.price.value = ""
-            )
-            for (let i = 1; i < 4; i++) {
-              dispatchClearShopList(i)
-              dispatchClearSelectedShop(i)
-            }
-          }}
-        >
+        <Button type="button" className={Styles.submitButton}>
           投稿!!
-        </button>
-      </form>
+        </Button>
+      </Form>
     </div>
+    
+
+
+    // <div className={Styles.formWrapper}>
+    //   <Headline title="投稿フォーム" />
+    //   <form
+    //     className={Styles.collection}
+    //     name="collectionForm"
+    //     method="post"
+    //     enctype="multipart/form-data"
+    //   >
+    //     <div className={Styles.collection_title}>
+    //       <label>コレクション名: </label>
+    //       <input
+    //         size="48"
+    //         maxLength="30"
+    //         placeholder="30文字以内"
+    //         onKeyPress={e => preventEnterKey()}
+    //         ref={node => { title = node }}
+    //       />
+    //     </div>
+    //     <div className={Styles.collection_description}>
+    //       <label>説明: </label>
+    //       <textarea
+    //         ref={node => {description = node}}
+    //       />
+    //     </div>
+    //     {ShopWrappers.map((ShopWrapper, i) => (
+    //       <div>
+    //         <p className={Styles.marker}>{`レコメンド${i+1}`}</p>
+    //         <div className={Styles.collection_recommend}>
+    //           <div className={Styles.collection_recommend_name}>
+    //             <label>名前: </label>
+    //             <input
+    //               placeholder="30文字以内"
+    //               onKeyPress={e => preventEnterKey()}
+    //               ref={node => { recommends[i].name = node }}
+    //             />
+    //           </div>
+    //           <div className={Styles.collection_recommend_price}>
+    //             <label>値段[円]: </label>
+    //             <input
+    //               onKeyPress={e => preventEnterKey()}
+    //               type="number"
+    //               min="0"
+    //               max="10000000"
+    //               step="100"
+    //               ref={node => { recommends[i].price = node }}
+    //             />
+    //           </div>
+    //           <div className={Styles.collection_recommend_image}>
+    //             <label>写真: </label>
+    //             <input
+    //               onKeyPress={e => preventEnterKey()}
+    //               type="file"
+    //               multiple="true"
+    //               onChange={e => recommends[i].reco_image = e.target.files[0]}
+    //             />
+    //           </div>
+    //         </div>
+    //         {ShopWrapper}
+    //       </div>
+    //     ))}
+    //     <button
+    //       className={Styles.submitButton}
+    //       type="button"
+    //       onClick={e => {
+    //         const formData = getFormData(title, description, recommends, shops)
+    //         dispatchPostAction(formData)
+    //         title.value = ""
+    //         recommends.map(recommend => 
+    //           recommend.name.value = recommend.price.value = ""
+    //         )
+    //         for (let i = 1; i < 4; i++) {
+    //           dispatchClearShopList(i)
+    //           dispatchClearSelectedShop(i)
+    //         }
+    //       }}
+    //     >
+    //       投稿!!
+    //     </button>
+    //   </form>
+    // </div>
   )
 }
 
