@@ -19,7 +19,7 @@ const Collection = ({ collection, activeCollection, index, handleToggle }) => (
               {recommend.shop.name}
           </a></p>
         </div>
-        <Image src={recommend.reco_image} alt={recommend.reco_image} rounded />
+        <Image src={recommend.reco_image} alt="Image" rounded />
       </div>   
     ))}
   </div>
