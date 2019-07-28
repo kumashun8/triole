@@ -16,7 +16,8 @@ module Api
         if recommend_1.save
           recommend_1.shop = Shop.create(
             name: params[:shop_name_1],
-            googlemap_link: params[:shop_googlemap_link_1]
+            googlemap_link: params[:shop_googlemap_link_1],
+            prefecture: params[:shop_prefecture_1]
           )
         else
           @collection.destroy
@@ -31,7 +32,8 @@ module Api
         if recommend_2.save
           recommend_2.shop = Shop.create(
             name: params[:shop_name_2],
-            googlemap_link: params[:shop_googlemap_link_2]
+            googlemap_link: params[:shop_googlemap_link_2],
+            prefecture: params[:shop_prefecture_2]
           )
         else
           @collection.destroy
@@ -46,7 +48,8 @@ module Api
         if recommend_3.save
           recommend_3.shop = Shop.create(
             name: params[:shop_name_3],
-            googlemap_link: params[:shop_googlemap_link_3]
+            googlemap_link: params[:shop_googlemap_link_3],
+            prefecture: params[:shop_prefecture_3]
           )
         else
           @collection.destroy
@@ -68,7 +71,8 @@ module Api
                 reco_image: recommend.fitted_image_url,
                 shop: {
                   name: recommend.shop.name,
-                  googlemap_link: recommend.shop.googlemap_link 
+                  googlemap_link: recommend.shop.googlemap_link,
+                  prefecture: recommend.shop.prefecture
                 }
               }
             )

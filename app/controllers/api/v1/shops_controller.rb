@@ -27,7 +27,7 @@ module Api
       end
 
       def detail
-        request = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + params[:place_id] + "&fields=name,url&language=ja&key=" + ENV['API_KEY']
+        request = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + params[:place_id] + "&fields=name,url,address_components&language=ja&key=" + ENV['API_KEY']
         uri = URI.encode(request)
         uri = URI.parse(uri)
         response = Net::HTTP.post_form(uri, {})

@@ -18,7 +18,8 @@
   )
   recommend.shop = Shop.create(
     name: "ラーメンとうせんぼ",
-    googlemap_link: "https://maps.google.com/?cid=2919324887577189048"
+    googlemap_link: "https://maps.google.com/?cid=2919324887577189048",
+    prefecture: "福岡県"
   )
 
   recommend2 = Recommend.create(
@@ -29,7 +30,9 @@
   )
   recommend2.shop = Shop.create(
     name: "乙姫ラーメン",
-    googlemap_link: "https://maps.google.com/?cid=1451368866080092245"
+    googlemap_link: "https://maps.google.com/?cid=1451368866080092245",
+    prefecture: "熊本県"
+
   )
   
   recommend3 = Recommend.create(
@@ -40,7 +43,8 @@
   )
   recommend3.shop = Shop.create(
     name: "ラーメン魁力屋 五反田店",
-    googlemap_link: "https://maps.google.com/?cid=11501312251885737951"
+    googlemap_link: "https://maps.google.com/?cid=11501312251885737951",
+    prefecture: "東京都"
   )
 
   

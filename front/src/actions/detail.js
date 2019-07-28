@@ -37,7 +37,7 @@ export const getShopDetail = (placeId, index) => {
     dispatch(getShopDetailRequest())
     return axios.get(process.env.REACT_APP_API_URI + '/api/v1/detail/' + placeId)
       .then(res => {
-        // console.log(res.data.result)
+        console.log(res.data.result)
         dispatch(getShopDetailSuccess(res.data.result, index))
       }
       ).catch(err =>

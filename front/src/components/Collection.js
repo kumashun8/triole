@@ -16,7 +16,7 @@ const Collection = ({ collection, activeCollection, index, handleToggle }) => (
               target="_blank"
               rel="noopener noreferrer"
             >
-              {recommend.shop.name}
+            {recommend.shop.name} ({recommend.shop.prefecture})
           </a></p>
         </div>
         <Image src={recommend.reco_image} alt="Image" rounded />
