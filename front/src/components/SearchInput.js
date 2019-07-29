@@ -1,14 +1,16 @@
 import React from 'react'
+import { Form } from 'react-bootstrap'
+
 
 const SearchInput = ({ dispatchGetAction, index }) => {
   let input
 
   return (
-    <div>
-      <label>お店: </label>
-      <input
+    <Form.Group>
+      <Form.Label>お店</Form.Label>
+      <Form.Control
         id={`searchInput${index}`}
-        placeholder="店舗名を検索"
+        placeholder="お店を検索"
         onChange={e => {
           e.preventDefault()
           if (!input.value.trim()) {
@@ -18,7 +20,7 @@ const SearchInput = ({ dispatchGetAction, index }) => {
         }}
         ref={node => { input = node }}
       />
-    </div>
+    </Form.Group>
   )
 }
 

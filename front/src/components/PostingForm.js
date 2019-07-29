@@ -11,21 +11,17 @@ import {
   Card
 } from 'react-bootstrap'
 
-
-const preventEnterKey = () => {
-  return window.event.keyCode === 13
-}
-
 const getFormData = (title, description, recommends, shops) => {
   let formPayLoad = new FormData()
   formPayLoad.append('title', title.value)
   formPayLoad.append('description', description.value)
   recommends.map(function (recommend, i) {
+    console.log(shops[i])
     formPayLoad.append(`reco_name_${i + 1}`, recommend.name.value)
     formPayLoad.append(`reco_price_${i + 1}`, recommend.price.value)
     formPayLoad.append(`shop_name_${i + 1}`, shops[i].name)
     formPayLoad.append(`shop_googlemap_link_${i + 1}`, shops[i].url)
-    formPayLoad.append(`shop_prefecture_${i + 1}`, shops[i].address_components[4].long_name)
+    formPayLoad.append(`shop_prefecture_${i + 1}`, findPrefecture(shops[i].address_components))
     const files = recommend.reco_image
     if (files) {
       formPayLoad.append(`reco_image_${i + 1}`, files)
@@ -33,7 +29,19 @@ const getFormData = (title, description, recommends, shops) => {
     return 0
   })
   return formPayLoad
-} 
+}
+
+const findPrefecture = (address) => {
+  if (address) {
+    const length = address.length
+    if (length < 3) {
+      return ""
+    }
+    const target = address[length - 3]
+    return target.long_name
+  }
+  return ""
+}
 
 const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearSelectedShop, shops }) => {
   let title, description
@@ -64,11 +72,18 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
       <Form className={Styles.collection}>
         <Form.Group controlId="formGroupText">
           <Form.Label>コレクション名</Form.Label>
-          <Form.Control type="text" placeholder="30文字以内"/>
+          <Form.Control
+            placeholder="30文字以内"
+            ref={node => { title = node }}
+          />
         </Form.Group>
         <Form.Group controlId="formGroupTextArea">
           <Form.Label>説明</Form.Label>
-          <Form.Control as="textarea" placeholder="120文字以内"/>
+          <Form.Control
+            as="textarea"
+            placeholder="120文字以内"
+            ref={node => {description = node}}
+          />
         </Form.Group>
         <Accordion>
           {ShopWrappers.map((ShopWrapper, i) => (
@@ -90,11 +105,17 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
                 <Card.Body>
                   <Form.Group>
                     <Form.Label>名前</Form.Label>
-                    <Form.Control type="text" placeholder="30文字以内" />
+                    <Form.Control
+                      placeholder="30文字以内"
+                      ref={node => { recommends[i].name = node }}
+                    />
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>値段 [円]</Form.Label>
-                    <Form.Control type="number" />
+                    <Form.Control
+                      type="number"
+                      ref={node => { recommends[i].price = node }}
+                    />
                   </Form.Group>
                   {ShopWrapper}
                 </Card.Body>
@@ -102,7 +123,23 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
             </Card>
           ))}
         </Accordion>
-        <Button type="button" className={Styles.submitButton}>
+        <Button
+          type="button"
+          className={Styles.submitButton}
+          onClick={e => {
+            console.log(shops[0])
+            const formData = getFormData(title, description, recommends, shops)
+            dispatchPostAction(formData)
+            title.value = ""
+            recommends.map(recommend => 
+              recommend.name.value = recommend.price.value = ""
+            )
+            for (let i = 1; i < 4; i++) {
+              dispatchClearShopList(i)
+              dispatchClearSelectedShop(i)
+            }
+          }}
+        >
           投稿!!
         </Button>
       </Form>
