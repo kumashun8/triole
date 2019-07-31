@@ -18,41 +18,47 @@ module Api
             name: params[:shop_name_1],
             googlemap_link: params[:shop_googlemap_link_1],
             prefecture: params[:shop_prefecture_1]
+            # prefecture: "福岡県"
           )
         else
           @collection.destroy
         end
 
-        recommend_2 = Recommend.new(
-          name: params[:reco_name_2],
-          price: params[:reco_price_2],
-          reco_image: params[:reco_image_2],
-          collection: @collection
-        )
-        if recommend_2.save
-          recommend_2.shop = Shop.create(
-            name: params[:shop_name_2],
-            googlemap_link: params[:shop_googlemap_link_2],
-            prefecture: params[:shop_prefecture_2]
+        if params[:reco_name_2].present?
+          recommend_2 = Recommend.new(
+            name: params[:reco_name_2],
+            price: params[:reco_price_2],
+            reco_image: params[:reco_image_2],
+            collection: @collection
           )
-        else
-          @collection.destroy
+          if recommend_2.save
+            recommend_2.shop = Shop.create(
+              name: params[:shop_name_2],
+              googlemap_link: params[:shop_googlemap_link_2],
+              prefecture: params[:shop_prefecture_2]
+            )
+          else
+            p recommend_2.errors.full_messages
+            @collection.destroy
+          end
         end
-
-        recommend_3 = Recommend.new(
-          name: params[:reco_name_3],
-          price: params[:reco_price_3],
-          reco_image: params[:reco_image_3],
-          collection: @collection
-        )
-        if recommend_3.save
-          recommend_3.shop = Shop.create(
-            name: params[:shop_name_3],
-            googlemap_link: params[:shop_googlemap_link_3],
-            prefecture: params[:shop_prefecture_3]
+        
+        if params[:reco_name_3].present?
+          recommend_3 = Recommend.new(
+            name: params[:reco_name_3],
+            price: params[:reco_price_3],
+            reco_image: params[:reco_image_3],
+            collection: @collection
           )
-        else
-          @collection.destroy
+          if recommend_3.save
+            recommend_3.shop = Shop.create(
+              name: params[:shop_name_3],
+              googlemap_link: params[:shop_googlemap_link_3],
+              prefecture: params[:shop_prefecture_3]
+            )
+          else
+            @collection.destroy
+          end
         end
 
         render json: @collection

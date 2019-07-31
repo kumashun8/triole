@@ -117,6 +117,13 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
                       ref={node => { recommends[i].price = node }}
                     />
                   </Form.Group>
+                  <Form.Group>
+                    <Form.Label>写真</Form.Label>
+                    <Form.Control
+                      type="file"
+                      onChange={e => recommends[i].reco_image = e.target.files[0]}
+                    />
+                  </Form.Group>
                   {ShopWrapper}
                 </Card.Body>
               </Accordion.Collapse>
