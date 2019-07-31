@@ -3,10 +3,12 @@ import shopList from './shopList'
 import selectedShop from './selectedShop'
 import post from './post'
 import index from './index'
+import previews from './preview'
 
 export default combineReducers({
   shopList,
   selectedShop,
   post,
-  index
+  index,
+  previews
 })
