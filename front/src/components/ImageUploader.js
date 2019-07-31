@@ -1,5 +1,5 @@
 import React from 'react'
-import Styles from '../styles/components/postingForm.module.scss'
+import Styles from '../styles/components/imageUploader.module.scss'
 import {
   Form,
   Button,
@@ -15,8 +15,16 @@ const ImageUploader = ({ images, dispatchUpdate, dispatchClear, i }) => (
         dispatchUpdate(e.target.files[0], i)
       }}
     />
-    <Button onClick={e => dispatchClear(i)}>クリア</Button>
-    <Image src={images.url} alt="Image" width="200px" height="200px" rounded/>
+    <Image
+      src={images.url}
+      className={Styles.preview_image}
+      alt="Image"
+      rounded
+    />
+    <Button
+      onClick={e => dispatchClear(i)}
+      className={Styles.preview_clearButton}
+    >クリア</Button>
   </Form.Group>
 )
 

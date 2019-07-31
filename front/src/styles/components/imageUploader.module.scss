@@ -1,0 +1,19 @@
+@import '../../variables/variables';
+
+.preview {
+  &_image {
+    margin-top: 8px;
+    width: 200px;
+    height: 200px;
+  }
+  &_clearButton {
+    margin-left: 8px;
+    position: relative;
+    top: 84px;
+    background-color: $accent;
+    border: solid 2px $accent;
+    &:hover {
+      background-color: darken($accent, 10);
+    }
+  }
+}
