@@ -3,9 +3,9 @@ export const PreviewStatuses = {
   CLEAR_PREVIEW: 'CLEAR_PREVIEW'
 }
 
-export const updatePreview = (imageUrl, index) => ({
+export const updatePreview = (imageFile, index) => ({
   type: 'UPDATE_PREVIEW',
-  imageUrl,
+  imageFile,
   index
 })
 

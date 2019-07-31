@@ -8,6 +8,7 @@ const initialState = {
 
 const clearSearchInput = (index) => {
   const target = `searchInput${index}`
+  console.log(target)
   document.getElementById(target).value = ""
 }
 
