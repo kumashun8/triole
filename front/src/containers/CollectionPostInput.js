@@ -3,9 +3,10 @@ import { postCollection } from '../actions/posting'
 import { clearShopList } from '../actions/search'
 import { clearSelectedShop } from '../actions/detail'
 import { clearPreview } from '../actions/preview'
+import { openForm, closeForm } from '../actions/form'
 import PostingForm from '../components/PostingForm'
 
-const NewestOf = (state) => {
+export const NewestOf = (state) => {
   const length = state.length
   return state[length - 1]
 }

@@ -45,7 +45,7 @@ const findPrefecture = (address) => {
   return ""
 }
 
-const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearSelectedShop, dispatchClearPreview, shops, images }) => {
+const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearSelectedShop, dispatchClearPreview, shops, images}) => {
   let title, description
   let recommends = [
     {
@@ -83,85 +83,88 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
   
   return (
     <div className={Styles.formWrapper}>
-      <Headline title="投稿フォーム" />
-      <Form className={Styles.collection}>
-        <Form.Group controlId="formGroupText">
-          <Form.Label>コレクション名</Form.Label>
-          <Form.Control
-            placeholder="30文字以内"
-            ref={node => { title = node }}
-          />
-        </Form.Group>
-        <Form.Group controlId="formGroupTextArea">
-          <Form.Label>説明</Form.Label>
-          <Form.Control
-            as="textarea"
-            placeholder="120文字以内"
-            ref={node => {description = node}}
-          />
-        </Form.Group>
-        <Accordion>
-          {(ObjectTrio).map((MyObject, i) => (
-            <Card>
-              <Card.Header>
-                <Accordion.Toggle
-                  eventKey={i + 1}
-                  as={Button}
-                  variant="light"
-                  className={Styles.marker}
+              <Headline title="投稿フォーム" />
+              <Form className={Styles.collection}>
+                <Form.Group controlId="formGroupText">
+                  <Form.Label>コレクション名</Form.Label>
+                  <Form.Control
+                    placeholder="30文字以内"
+                    ref={node => { title = node }}
+                  />
+                </Form.Group>
+                <Form.Group controlId="formGroupTextArea">
+                  <Form.Label>説明</Form.Label>
+                  <Form.Control
+                    as="textarea"
+                    placeholder="120文字以内"
+                    ref={node => {description = node}}
+                  />
+                </Form.Group>
+                <Accordion>
+                  {(ObjectTrio).map((MyObject, i) => (
+                    <Card>
+                      <Card.Header>
+                        <Accordion.Toggle
+                          eventKey={i + 1}
+                          as={Button}
+                          variant="light"
+                          className={Styles.marker}
+                        >
+                          {i === 0 ?
+                            `レコメンド${i + 1} (必須)` :
+                            `レコメンド${i + 1} `
+                          }
+                        </Accordion.Toggle>
+                      </Card.Header>
+                      <Accordion.Collapse eventKey={i + 1}>
+                        <Card.Body>
+                          <Form.Group>
+                            <Form.Label>名前</Form.Label>
+                            <Form.Control
+                              placeholder="30文字以内"
+                              ref={node => { recommends[i].name = node }}
+                            />
+                          </Form.Group>
+                          <Form.Group>
+                            <Form.Label>値段 [円]</Form.Label>
+                            <Form.Control
+                              type="number"
+                              ref={node => { recommends[i].price = node }}
+                            />
+                          </Form.Group>
+                          {MyObject.image}
+                          {MyObject.shop}
+                          
+                        </Card.Body>
+                      </Accordion.Collapse>
+                    </Card>
+                  ))}
+                </Accordion>
+              </Form>
+              <Button
+                  type="button"
+                  className={Styles.submitButton}
+                  onClick={e => {
+                    console.log(shops[0])
+                    const formData = getFormData(title, description, recommends, shops, images)
+                    dispatchPostAction(formData)
+                    title.value = ""
+                    description.value = ""
+                    recommends.map(recommend => 
+                      recommend.name.value = recommend.price.value = ""
+                    )
+                    for (let i = 1; i < 4; i++) {
+                      dispatchClearShopList(i)
+                      dispatchClearSelectedShop(i)
+                      dispatchClearPreview(i)
+                    }
+                  }}
                 >
-                  {i === 0 ?
-                    `レコメンド${i + 1} (必須)` :
-                    `レコメンド${i + 1} `
-                  }
-                </Accordion.Toggle>
-              </Card.Header>
-              <Accordion.Collapse eventKey={i + 1}>
-                <Card.Body>
-                  <Form.Group>
-                    <Form.Label>名前</Form.Label>
-                    <Form.Control
-                      placeholder="30文字以内"
-                      ref={node => { recommends[i].name = node }}
-                    />
-                  </Form.Group>
-                  <Form.Group>
-                    <Form.Label>値段 [円]</Form.Label>
-                    <Form.Control
-                      type="number"
-                      ref={node => { recommends[i].price = node }}
-                    />
-                  </Form.Group>
-                  {MyObject.image}
-                  {MyObject.shop}
-                  
-                </Card.Body>
-              </Accordion.Collapse>
-            </Card>
-          ))}
-        </Accordion>
-        <Button
-          type="button"
-          className={Styles.submitButton}
-          onClick={e => {
-            console.log(shops[0])
-            const formData = getFormData(title, description, recommends, shops, images)
-            dispatchPostAction(formData)
-            title.value = ""
-            description.value = ""
-            recommends.map(recommend => 
-              recommend.name.value = recommend.price.value = ""
-            )
-            for (let i = 1; i < 4; i++) {
-              dispatchClearShopList(i)
-              dispatchClearSelectedShop(i)
-              dispatchClearPreview(i)
-            }
-          }}
-        >
-          投稿!!
-        </Button>
-      </Form>
+                  投稿!!
+                </Button>
+  
+
+
     </div>
   )
 }
