@@ -15,7 +15,10 @@ const MyModal = ({ dispatchOpen, dispatchClose, show }) => (
         投稿
     </Button>
     <Modal show={show} onHide={e => { dispatchClose() }}>
-      <Modal.Header closeButton>
+      <Modal.Header closeButton onClick={e => {
+        dispatchClose()
+        console.log(show)
+      }}>
         <Modal.Title>
           <Headline title="投稿フォーム" />
         </Modal.Title>

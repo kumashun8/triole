@@ -11,13 +11,11 @@ export const NewestOf = (state) => {
   return state[length - 1]
 }
 
-const mapStateToProps = state => {
-  return {
-    collection: NewestOf(state.post).collection,
-    shops: NewestOf(state.selectedShop).shop,
-    images: NewestOf(state.previews).images
-  }
-}
+const mapStateToProps = state => ({
+  collection: NewestOf(state.post).collection,
+  shops: NewestOf(state.selectedShop).shop,
+  images: NewestOf(state.previews).images
+})
 
 const mapDispatchToProps = dispatch => ({
   dispatchPostAction: collection => dispatch(postCollection(collection)),

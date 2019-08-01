@@ -1,6 +1,6 @@
 export const FormStatuses = {
   OPEN_FORM: 'OPEN_FORM',
-  FORM_CLOSE: 'CLOSE_FORM'
+  CLOSE_FORM: 'CLOSE_FORM'
 }
 
 export const openForm = () => ({
