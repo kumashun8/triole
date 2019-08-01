@@ -1,24 +1,26 @@
 import React, {useState} from 'react'
 import Headline from './Headline'
 import CollectionPostInput from '../containers/CollectionPostInput'
+import Styles from '../styles/components/myModal.module.scss'
 import {
   Modal,
   Button
 } from 'react-bootstrap'
 
 const MyModal = ({ dispatchOpen, dispatchClose, show }) => (
-  <div>
-    <Button onClick={e => {
-      dispatchOpen()
-      console.log(show)
-    }}>
-        投稿
+  <div className={Styles.myModal}>
+    <Button
+      onClick={e => { dispatchOpen() }}
+      className={Styles.myModal_openButton}
+    >
+      <i class="fas fa-plus"></i>
     </Button>
     <Modal show={show} onHide={e => { dispatchClose() }}>
-      <Modal.Header closeButton onClick={e => {
-        dispatchClose()
-        console.log(show)
-      }}>
+      <Modal.Header
+        closeButton
+        onClick={e => { dispatchClose() }}
+        className={Styles.myModal_closeButton}
+      >
         <Modal.Title>
           <Headline title="投稿フォーム" />
         </Modal.Title>
@@ -26,9 +28,6 @@ const MyModal = ({ dispatchOpen, dispatchClose, show }) => (
       <Modal.Body>
         <CollectionPostInput />
       </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={e => {dispatchClose()}}>閉じる</Button>
-      </Modal.Footer>
     </Modal>
   </div>
 )

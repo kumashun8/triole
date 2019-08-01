@@ -1,0 +1,30 @@
+@import '../../variables/variables';
+
+.myModal {
+  &_openButton {
+    position: fixed;
+    z-index: 10;
+    top: 80vh;
+    left: 90vw;
+    background-color: $main;
+    color: $white;
+    border: 4px solid $main;
+    border-radius: 40px;
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+    line-height: 72px;
+    padding: 0;
+    margin: 0;
+    box-shadow: 4px;
+    &:hover {
+      background-color: $white;
+      color: $main;
+      border: 4px solid $main;
+    }
+  }
+  &_closeButton {
+    background-color: lighten($main, 51);
+    padding: 24px 24px 8px 24px;
+  }
+}
