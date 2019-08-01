@@ -3,7 +3,7 @@ import { postCollection } from '../actions/posting'
 import { clearShopList } from '../actions/search'
 import { clearSelectedShop } from '../actions/detail'
 import { clearPreview } from '../actions/preview'
-import { openForm, closeForm } from '../actions/form'
+import { closeForm } from '../actions/form'
 import PostingForm from '../components/PostingForm'
 
 export const NewestOf = (state) => {
@@ -21,7 +21,8 @@ const mapDispatchToProps = dispatch => ({
   dispatchPostAction: collection => dispatch(postCollection(collection)),
   dispatchClearShopList: index => dispatch(clearShopList(index)),
   dispatchClearSelectedShop: index => dispatch(clearSelectedShop(index)),
-  dispatchClearPreview: index => dispatch(clearPreview(index))
+  dispatchClearPreview: index => dispatch(clearPreview(index)),
+  dispatchCloseThis: index => dispatch(closeForm())
 })
 
 const CollectionPostInput = connect(

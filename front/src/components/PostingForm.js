@@ -45,7 +45,7 @@ const findPrefecture = (address) => {
   return ""
 }
 
-const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearSelectedShop, dispatchClearPreview, shops, images}) => {
+const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearSelectedShop, dispatchClearPreview, dispatchCloseThis, shops, images}) => {
   let title, description
   let recommends = [
     {
@@ -158,6 +158,7 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
                       dispatchClearSelectedShop(i)
                       dispatchClearPreview(i)
                     }
+                    dispatchCloseThis()
                   }}
                 >
                   投稿!!
