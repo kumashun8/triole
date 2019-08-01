@@ -83,7 +83,6 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
   
   return (
     <div className={Styles.formWrapper}>
-              <Headline title="投稿フォーム" />
               <Form className={Styles.collection}>
                 <Form.Group controlId="formGroupText">
                   <Form.Label>コレクション名</Form.Label>
@@ -97,6 +96,7 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
                   <Form.Control
                     as="textarea"
                     placeholder="120文字以内"
+                    rows="5"
                     ref={node => {description = node}}
                   />
                 </Form.Group>

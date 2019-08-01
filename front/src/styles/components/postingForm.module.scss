@@ -1,11 +1,16 @@
 @import '../../variables/variables';
 
 .formWrapper {
-  width: 480px;
+  width: 456px;
+  margin: 0 auto;
   .collection {
-    border: 2px solid $gray;
-    border-radius: 8px;
-    padding: 40px 24px 16px;
+    // border: 2px solid $gray;
+    // border-radius: 8px;
+    // padding: 40px 24px 16px;
+    &_description {
+      display: block;
+      height: 5rem;
+    }
     &_recommend {
       display: flex;
       width: 100%;
