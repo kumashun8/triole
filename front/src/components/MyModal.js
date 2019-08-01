@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Headline from './Headline'
 import CollectionPostInput from '../containers/CollectionPostInput'
 import Styles from '../styles/components/myModal.module.scss'
