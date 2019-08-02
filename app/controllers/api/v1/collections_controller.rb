@@ -72,7 +72,7 @@ module Api
               {
                 name: recommend.name,
                 price: recommend.price,
-                reco_image: recommend.fitted_image_url,
+                reco_image: recommend.reco_image_url(:thumb),
                 shop: {
                   name: recommend.shop.name,
                   googlemap_link: recommend.shop.googlemap_link,
