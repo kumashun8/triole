@@ -13,6 +13,10 @@ class Recommend < ApplicationRecord
       splited_url = reco_image_url(:thumb).split('/')
       i = splited_url.index('uploads')
       splited_url[i..].join('/')
+    else
+      "https://fakeimg.pl/200x200/333/808080/?text=no%20image"
     end
   end
+
+
 end
