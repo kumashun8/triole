@@ -99,7 +99,7 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
                     ref={node => {description = node}}
                   />
                 </Form.Group>
-                <Accordion>
+                <Accordion defaultActiveKey={1} >
                   {(ObjectTrio).map((MyObject, i) => (
                     <Card>
                       <Card.Header>
