@@ -19,7 +19,11 @@ const Collection = ({ collection }) => (
             {recommend.shop.name} ({recommend.shop.prefecture})
           </a></p>
         </div>
-        <Image src={recommend.reco_image} alt="Image" rounded />
+        <Image
+          src={recommend.reco_image}
+          className={Styles.recommend_image}
+          alt="Image"
+          rounded />
       </div>   
     ))}
   </div>

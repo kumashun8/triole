@@ -51,5 +51,29 @@
 @media screen and (max-width: 425px) {
   .collection {
     padding: 0;
+    .recommend {
+      flex-direction: column;
+      padding: 16px;
+      &_text {
+        width: 240px;
+        &_name {
+          font-size: 1rem;
+          line-height: 1.4rem;
+        }
+        &_price {
+          font-size: 0.8rem;
+          line-height: 1rem;
+          margin: 0;
+        }
+        &_shop {
+          font-size: 0.8rem;
+          line-height: 1rem;
+        }
+      }
+      &_image {
+        width: 200px;
+        height: 200px;
+      }
+    }
   }
 }
