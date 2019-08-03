@@ -8,7 +8,7 @@ const Collection = ({ collection }) => (
     {collection.recommends.map((recommend, index) => (
       <div className={Styles.recommend}>
         <div className={Styles.recommend_text}>
-          <p className={Styles.recommend_text_name}>{index+1}. {recommend.name}</p><br />
+          <p className={Styles.recommend_text_name}>{recommend.name}</p><br />
           <p className={Styles.recommend_text_price}>¥{recommend.price}</p>
           <p><a
               className={Styles.recommend_text_shop}

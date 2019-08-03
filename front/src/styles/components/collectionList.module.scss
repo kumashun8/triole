@@ -5,3 +5,19 @@
   margin: 0 auto;
   width: 800px;
 }
+
+@media screen and (max-width: 768px) {
+  .collectionList {
+    width: 90vw;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .headerWrapper {
+    height: 120px;
+    margin: 0;
+  }
+}
+
+
+

@@ -5,7 +5,6 @@
   margin: -1.2rem;
   padding: 0 24px;
   .recommend {
-    width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 40px;
@@ -13,7 +12,7 @@
       width: 440px;
       &_name {
         display: inline-block;
-        line-height: 1.9rem;
+        line-height: 2.2rem;
         font-size: 1.5rem;
         color: $main;
         font-weight: $bold-weight;
@@ -29,5 +28,28 @@
         color: $accent;
       }
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .collection {
+    .recommend {
+      &_text {
+        &_name {
+          font-size: 1.2rem;
+          line-height: 1.8rem;
+        }
+        &_price, &_shop {
+          font-size: 1rem;
+          line-height: 1.2rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .collection {
+    padding: 0;
   }
 }
