@@ -4,9 +4,6 @@
   width: 456px;
   margin: 0 auto;
   .collection {
-    // border: 2px solid $gray;
-    // border-radius: 8px;
-    // padding: 40px 24px 16px;
     &_description {
       display: block;
       height: 5rem;
@@ -43,5 +40,11 @@
     border-radius: 8px;
     border: none;
     cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .formWrapper {
+    width: 280px;
   }
 }
