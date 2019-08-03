@@ -21,9 +21,9 @@ const CollectionList = ({ collections }) => {
       <Accordion className={Styles.collectionList}>
         {collections.map((collection, index) => (
           <Card>
-            <Card.Header >
+            <Card.Header className={Styles.headerWrapper}>
               <Accordion.Toggle
-                className={Styles.headerWrapper}
+                className={Styles.toggle}
                 eventKey={index + 1}
                 as={Button}
                 variant="light"

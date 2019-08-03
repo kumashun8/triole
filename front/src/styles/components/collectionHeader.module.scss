@@ -19,14 +19,14 @@
 
 @media screen and (max-width: 768px) {
   .collectionHeader {
-    width: 65vw;
+    width: 75.5vw;
   }
 }
 
 @media screen and (max-width: 425px) {
   .collectionHeader {
     padding: 0;
-    margin: 8px 8px 8px -16px;
+    margin: 8px 0;
     &_title {
       font-size: 1rem;
     }

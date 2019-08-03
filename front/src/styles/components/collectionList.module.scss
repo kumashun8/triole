@@ -14,6 +14,9 @@
 
 @media screen and (max-width: 425px) {
   .headerWrapper {
+    padding: .75rem;
+  }
+  .toggle {
     height: 120px;
     margin: 0;
   }
