@@ -24,7 +24,7 @@
     }
   }
   &_closeButton {
-    background-color: lighten($main, 51);
+    background-color: $light-main;
     padding: 24px 24px 8px 24px;
   }
 }
