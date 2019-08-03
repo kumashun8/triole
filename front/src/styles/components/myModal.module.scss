@@ -28,3 +28,28 @@
     padding: 24px 24px 8px 24px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .myModal {
+    &_openButton {
+      width: 64px;
+      height: 64px;
+      line-height: 40px;
+      font-size: 32px;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .myModal {
+    &_openButton {
+      top: 90vh;
+      left: 85vw;
+      width: 48px;
+      height: 48px;
+      line-height: 24px;
+      font-size: 24px;
+    }
+  }
+}
+
