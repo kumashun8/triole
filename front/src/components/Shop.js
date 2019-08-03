@@ -9,7 +9,9 @@ const Shop = ({ structured_formatting, place_id, handleClick }) => (
   >
     <strong>{structured_formatting.main_text}</strong>
     <br />
-    {structured_formatting.secondary_text}  
+    <p className={Styles.shop_address}>
+      {structured_formatting.secondary_text}  
+    </p>
   </li>
 )
 
