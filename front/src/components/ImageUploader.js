@@ -11,6 +11,7 @@ const ImageUploader = ({ images, dispatchUpdate, dispatchClear, i }) => (
     <Form.Label>写真</Form.Label>
     <Form.Control
       type="file"
+      className={Styles.preview_input}
       onChange={e => {
         dispatchUpdate(e.target.files[0], i)
       }}
