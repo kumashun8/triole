@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
-  database: triole_production
-  username: triole
-  password: <%= ENV['TRIOLE_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
