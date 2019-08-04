@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { getCollections } from './index'
+import { API_URI } from './index'
 
 export const PostingStatuses = {
   UPDATE_POSTINGT_FORM: 'UPDATE_POSTINGT_FORM',
@@ -29,7 +30,7 @@ export const postCollectionFaiue = (error) => ({
 export const postCollection = (collection) => {
   return (dispatch) => {
     dispatch(postCollectionRequest())
-    return axios.post(process.env.REACT_APP_API_URI + '/api/v1/collections/',
+    return axios.post(API_URI + '/api/v1/collections/',
       collection)
       .then(res => {
         // console.log(res)
