@@ -5,6 +5,7 @@ import post from './post'
 import index from './index'
 import previews from './preview'
 import form from './form'
+import window from './window'
 
 export default combineReducers({
   shopList,
@@ -12,5 +13,6 @@ export default combineReducers({
   post,
   index,
   previews,
-  form
+  form,
+  window
 })

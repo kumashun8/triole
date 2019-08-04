@@ -17,6 +17,10 @@
     padding: 0;
     margin: 0;
     box-shadow: 4px;
+    &_disable {
+      transition: 0.5s;
+      display: none;
+    }
     &:hover {
       background-color: $white;
       color: $main;
