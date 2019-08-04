@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_07_28_155805) do
 
-  create_table "collections", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "collections", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "title"
     t.integer "budget"
     t.datetime "created_at", null: false
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2019_07_28_155805) do
     t.text "description"
   end
 
-  create_table "recommends", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "recommends", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name"
     t.integer "price"
     t.text "description"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2019_07_28_155805) do
     t.index ["collection_id"], name: "index_recommends_on_collection_id"
   end
 
-  create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name"
     t.string "googlemap_link"
     t.datetime "created_at", null: false

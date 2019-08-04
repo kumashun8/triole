@@ -1,5 +1,8 @@
 import axios from 'axios'
 
+// export const API_URI = "http://localhost:3000"
+export const API_URI = "https://tri-ole.herokuapp.com/"
+
 export const IndexStatuses = {
   GET_COLLECTIONS_REQUEST: 'GET_COLLECTIONS_REQUEST',
   GET_COLLECTIONS_SUCCESS: 'GET_COLLECTIONS_SUCCESS',
@@ -28,7 +31,7 @@ export const requestIsNotExist = () => ({
 export const getCollections = () => {
   return (dispatch) => {
     dispatch(getCollectionsRequest())
-    return axios.get(process.env.REACT_APP_API_URI + '/api/v1/collections/')
+    return axios.get(API_URI + '/api/v1/collections/')
       .then(res => {
         console.log(res.data)
         dispatch(getCollectionsSuccess(res.data))
