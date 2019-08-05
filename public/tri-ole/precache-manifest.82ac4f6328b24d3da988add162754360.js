@@ -1,18 +1,18 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "eb24d4165c36e894c3f989bd936dcda0",
+    "revision": "beffd782ca5d79d9423b7571bc2e0629",
     "url": "/tri-ole/index.html"
   },
   {
-    "revision": "ef8309b77bfe5e0e3c9e",
-    "url": "/tri-ole/static/css/main.fae54da8.chunk.css"
+    "revision": "525bdb3bf5ebe313457d",
+    "url": "/tri-ole/static/css/main.5b3755d3.chunk.css"
   },
   {
     "revision": "d24c26185638f71f27d5",
     "url": "/tri-ole/static/js/2.e6b0abe0.chunk.js"
   },
   {
-    "revision": "ef8309b77bfe5e0e3c9e",
+    "revision": "525bdb3bf5ebe313457d",
     "url": "/tri-ole/static/js/main.ee0c7fbc.chunk.js"
   },
   {
