@@ -47,8 +47,8 @@
 @media screen and (max-width: 425px) {
   .myModal {
     &_openButton {
-      top: 90vh;
-      left: 85vw;
+      top: 70vh;
+      left: calc(100% - 64px);
       width: 48px;
       height: 48px;
       line-height: 24px;
