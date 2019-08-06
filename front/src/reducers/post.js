@@ -7,14 +7,6 @@ const initialState = {
 
 const post = (state = [initialState], action) => {
   switch (action.type) {
-    case PostingStatuses.UPDATE_POSTINGT_FORM:
-      return [
-        ...state,
-        {
-          isFetching: false,
-          collection: action.collection
-        }
-      ]
     case PostingStatuses.POST_COLLECTION_REQUEST:
       return [
         ...state,

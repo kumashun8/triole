@@ -3,16 +3,10 @@ import { getCollections } from './index'
 import { API_URI } from './index'
 
 export const PostingStatuses = {
-  UPDATE_POSTINGT_FORM: 'UPDATE_POSTINGT_FORM',
   POST_COLLECTION_REQUEST: 'POST_COLLECTION_REQUEST',
   POST_COLLECTION_SUCCESS: 'POST_COLLECTION_SUCCESS',
   POST_COLLECTION_FAILUE: 'POST_COLLECTION_FAILUE'
 }
-
-export const updatePostingForm = (collection) => ({
-  type: 'UPDATE_POSTINGT_FORM',
-  collection: collection
-})
 
 export const postCollectionRequest = () => ({
   type: 'POST_COLLECTION_REQUEST'

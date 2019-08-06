@@ -16,7 +16,7 @@ const CollectionList = ({ collections }) => {
   } 
 
   return (
-    <div>
+    <div width="100vw">
       <Headline title="コレクション一覧" />
       <Accordion className={Styles.collectionList}>
         {collections.map((collection, index) => (

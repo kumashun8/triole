@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-// export const API_URI = "http://localhost:3000"
-export const API_URI = "https://tri-ole.herokuapp.com/"
+export const API_URI = "http://localhost:3000"
+// export const API_URI = "https://tri-ole.herokuapp.com/"
 
 export const IndexStatuses = {
   GET_COLLECTIONS_REQUEST: 'GET_COLLECTIONS_REQUEST',
