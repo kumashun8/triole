@@ -33,7 +33,6 @@ export const getCollections = () => {
     dispatch(getCollectionsRequest())
     return axios.get(API_URI + '/api/v1/collections/')
       .then(res => {
-        console.log(res.data)
         dispatch(getCollectionsSuccess(res.data))
       }
       ).catch(err => 

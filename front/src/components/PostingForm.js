@@ -18,7 +18,6 @@ const getFormData = (title, description, recommends, shops, images) => {
   formPayLoad.append('title', title.value)
   formPayLoad.append('description', description.value)
   recommends.map(function (recommend, i) {
-    console.log(shops[i])
     formPayLoad.append(`reco_name_${i + 1}`, recommend.name.value)
     formPayLoad.append(`reco_price_${i + 1}`, recommend.price.value)
     formPayLoad.append(`shop_name_${i + 1}`, shops[i].name)
@@ -144,7 +143,6 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
                   type="button"
                   className={Styles.submitButton}
                   onClick={e => {
-                    console.log(shops[0])
                     const formData = getFormData(title, description, recommends, shops, images)
                     dispatchPostAction(formData)
                     title.value = ""

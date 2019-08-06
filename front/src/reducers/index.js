@@ -8,7 +8,6 @@ const initialState = {
 const index = (state = [initialState], action) => {
   switch (action.type) {
     case IndexStatuses.GET_COLLECTIONS_REQUEST:
-      console.log("request!")
       return [
         ...state,
         {
@@ -17,7 +16,6 @@ const index = (state = [initialState], action) => {
         }
       ]
     case IndexStatuses.GET_COLLECTIONS_SUCCESS:
-      console.log("success!")
       return [
         ...state,
         {
@@ -27,7 +25,6 @@ const index = (state = [initialState], action) => {
         }
       ]
     case IndexStatuses.GET_COLLECTIONS_FAILUE:
-      console.log("failue!")
       return [
         ...state,
         {

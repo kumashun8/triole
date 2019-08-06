@@ -7,7 +7,6 @@ const initialState = {
 const form = (state = [initialState], action) => {
   switch (action.type) {
     case FormStatuses.OPEN_FORM:
-      console.log(action)
       return [
         ...state,
         {
@@ -15,7 +14,6 @@ const form = (state = [initialState], action) => {
         }
       ]
     case FormStatuses.CLOSE_FORM:
-      console.log("-----------()-----------")
       return [
         ...state,
         {

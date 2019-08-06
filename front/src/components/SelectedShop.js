@@ -8,7 +8,6 @@ import ShopCancellButton2 from '../containers/ShopCancellButton2'
 import ShopCancellButton3 from '../containers/ShopCancellButton3'
 
 const SelectedShop = ({ selectedShop, index }) => {
-  console.log(selectedShop)
   let buttons
   if (Object.keys(selectedShop).length === 0) {
     return <div></div>
