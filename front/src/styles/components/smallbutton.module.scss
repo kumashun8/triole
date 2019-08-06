@@ -1,0 +1,13 @@
+@import '../../variables/variables';
+
+.enter {
+  margin: 8px 8px 8px 0;
+  background-color: $main;
+  border: 2px solid $main;
+}
+
+.cancel {
+  margin: 8px 8px 8px 0;
+  background-color: $accent;
+  border: 2px solid $accent;
+}

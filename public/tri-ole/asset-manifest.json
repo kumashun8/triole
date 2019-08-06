@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/tri-ole/static/css/main.dfc6e226.chunk.css",
-    "main.js": "/tri-ole/static/js/main.53f17809.chunk.js",
-    "main.js.map": "/tri-ole/static/js/main.53f17809.chunk.js.map",
+    "main.css": "/tri-ole/static/css/main.058ad2be.chunk.css",
+    "main.js": "/tri-ole/static/js/main.eddd2aca.chunk.js",
+    "main.js.map": "/tri-ole/static/js/main.eddd2aca.chunk.js.map",
     "runtime~main.js": "/tri-ole/static/js/runtime~main.b77ed755.js",
     "runtime~main.js.map": "/tri-ole/static/js/runtime~main.b77ed755.js.map",
-    "static/js/2.c1586c9c.chunk.js": "/tri-ole/static/js/2.c1586c9c.chunk.js",
-    "static/js/2.c1586c9c.chunk.js.map": "/tri-ole/static/js/2.c1586c9c.chunk.js.map",
+    "static/js/2.2b9cc8c6.chunk.js": "/tri-ole/static/js/2.2b9cc8c6.chunk.js",
+    "static/js/2.2b9cc8c6.chunk.js.map": "/tri-ole/static/js/2.2b9cc8c6.chunk.js.map",
     "index.html": "/tri-ole/index.html",
-    "precache-manifest.b5154fe99618887924d34c4b5bfe29d7.js": "/tri-ole/precache-manifest.b5154fe99618887924d34c4b5bfe29d7.js",
+    "precache-manifest.ed4072f3d46828c45e6a4e2785ba38e9.js": "/tri-ole/precache-manifest.ed4072f3d46828c45e6a4e2785ba38e9.js",
     "service-worker.js": "/tri-ole/service-worker.js",
-    "static/css/main.dfc6e226.chunk.css.map": "/tri-ole/static/css/main.dfc6e226.chunk.css.map",
+    "static/css/main.058ad2be.chunk.css.map": "/tri-ole/static/css/main.058ad2be.chunk.css.map",
     "static/media/triole_logo.png": "/tri-ole/static/media/triole_logo.44d13ace.png"
   }
 }
