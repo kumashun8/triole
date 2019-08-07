@@ -57,3 +57,6 @@ gem 'dotenv-rails'
 gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
 gem 'rmagick', require: 'rmagick'
 gem 'fog-aws'
+
+# タグ付け
+gem 'acts-as-taggable-on', '~> 6.0'
