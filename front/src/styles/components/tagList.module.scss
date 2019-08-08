@@ -1,0 +1,19 @@
+@import '../../variables/variables';
+
+.tagList {
+  list-style: none;
+  color: $accent2;
+  margin: 0;
+  padding: 16px 40px;
+  display: flex;
+  &_tag {
+    margin-left: 8px;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .tagList {
+    padding: 16px 24px; 
+  }
+}

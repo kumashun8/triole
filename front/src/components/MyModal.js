@@ -34,7 +34,7 @@ const MyModal = ({ dispatchOpen, dispatchClose, dispatchScrolling, dispatchNotSc
           Styles.myModal_openButton
         }
       >
-        <i class="fas fa-plus"></i>
+        <i className="fas fa-plus"></i>
       </Button>
       <Modal show={show} onHide={e => { dispatchClose() }}>
         <Modal.Header

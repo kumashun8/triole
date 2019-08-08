@@ -7,6 +7,10 @@ module Api
           description: params[:description]
         )
 
+        @collection.tag_list.add(params[:tags], parse: true)
+        @collection.save
+        p @collection.tags
+
         recommend_1 = Recommend.new(
           name: params[:reco_name_1],
           price: params[:reco_price_1],
@@ -84,6 +88,37 @@ module Api
           @collections.push({
             title: collection.title,
             description: collection.description,
+            tags: collection.tag_list,
+            recommends: shopIncludingRecommends
+          })
+        end
+
+        render json: @collections
+      end
+
+      def tagged
+        collections = Collection.tagged_with(params[:tag]).order(created_at: "DESC").includes(recommends: :shop).references(:recommends, :shop)
+        @collections = []
+        collections.each do |collection|
+          shopIncludingRecommends = []
+          collection.recommends.each do |recommend|
+            shopIncludingRecommends.push(
+              {
+                name: recommend.name,
+                price: recommend.price,
+                reco_image: recommend.reco_image_url(:thumb),
+                shop: {
+                  name: recommend.shop.name,
+                  googlemap_link: recommend.shop.googlemap_link,
+                  prefecture: recommend.shop.prefecture
+                }
+              }
+            )
+          end
+          @collections.push({
+            title: collection.title,
+            description: collection.description,
+            tags: collection.tag_list,
             recommends: shopIncludingRecommends
           })
         end

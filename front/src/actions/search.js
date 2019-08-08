@@ -37,6 +37,7 @@ export const clearShopList = (index) => ({
 export const getShopList = (text, index) => {
   return (dispatch) => {
     dispatch(getShopListRequest())
+    console.log(typeof(text))
     return axios.get(API_URI + '/api/v1/search/' + text)
       .then(res => {
         dispatch(getShopListSuccess(res.data.predictions, index))

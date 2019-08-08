@@ -1,0 +1,29 @@
+@import '../../variables/variables';
+
+.myFormControl {
+  width: 800px;
+  margin: 0 auto 24px;
+  display: flex;
+  &_button {
+    width: 80px;
+    height: 40px;
+    margin-left: 8px;
+    color: $white;
+    background-color: $accent;
+    font-size: 1rem;
+    font-weight: $bold-weight; 
+    border: 2px solid $accent;
+    cursor: pointer;
+    &:hover {
+      color: $accent;
+      background-color: $white;
+      border: 2px solid $accent;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .myFormControl {
+    width: 90vw;
+  }
+}

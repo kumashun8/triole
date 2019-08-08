@@ -13,10 +13,11 @@ import {
   Card
 } from 'react-bootstrap'
 
-const getFormData = (title, description, recommends, shops, images) => {
+const getFormData = (title, description, tags, recommends, shops, images) => {
   let formPayLoad = new FormData()
   formPayLoad.append('title', title.value)
   formPayLoad.append('description', description.value)
+  formPayLoad.append('tags', tags.value)
   recommends.map(function (recommend, i) {
     formPayLoad.append(`reco_name_${i + 1}`, recommend.name.value)
     formPayLoad.append(`reco_price_${i + 1}`, recommend.price.value)
@@ -44,7 +45,7 @@ const findPrefecture = (address) => {
 }
 
 const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearSelectedShop, dispatchClearPreview, dispatchCloseThis, shops, images}) => {
-  let title, description
+  let title, description, tags
   let recommends = [
     {
       name: "",
@@ -94,8 +95,17 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
                   <Form.Control
                     as="textarea"
                     placeholder="120文字以内"
-                    rows="5"
+                    rows="3"
                     ref={node => {description = node}}
+                  />
+                  </Form.Group>
+                  <Form.Group controlId="formGroupTextArea">
+                  <Form.Label>タグ</Form.Label>
+                  <Form.Control
+                    as="textarea"
+                    placeholder="タグの間はスペースを入れてください"
+                    rows="2"
+                    ref={node => {tags = node}}
                   />
                 </Form.Group>
                 <Accordion defaultActiveKey={1} >
@@ -143,7 +153,7 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
                   type="button"
                   className={Styles.submitButton}
                   onClick={e => {
-                    const formData = getFormData(title, description, recommends, shops, images)
+                    const formData = getFormData(title, description, tags, recommends, shops, images)
                     dispatchPostAction(formData)
                     title.value = ""
                     description.value = ""
