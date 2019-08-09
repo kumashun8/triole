@@ -4,8 +4,9 @@
   list-style: none;
   color: $accent2;
   margin: 0;
-  padding: 16px 40px;
+  padding: 16px 40px 32px;
   display: flex;
+  flex-wrap: wrap;
   &_tag {
     margin-left: 8px;
     cursor: pointer;
