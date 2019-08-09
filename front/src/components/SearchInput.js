@@ -33,9 +33,11 @@ const SearchInput = ({ dispatchGetAction, index, label, placeholder }) => {
         />
         <Button
           className={Styles.myFormControl_button}
-          onClick={e => 
-            dispatchGetAction(convertHashToSpace(input.value))
-          }
+          onClick={e => {
+            if (input.value !== "") {
+              dispatchGetAction(convertHashToSpace(input.value))
+            }
+          }}
         >
           検索
         </Button>
