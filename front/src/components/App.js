@@ -3,6 +3,7 @@ import FormModal from '../containers/FormModal'
 import CollectionIndex from '../containers/CollectionIndex'
 import IndexSpinner from '../containers/IndexSpinner'
 import TagInput from '../containers/TagInput'
+import ValiForm from './ValiForm'
 import Styles from '../styles/components/app.module.scss'
 
 class App extends React.Component {
@@ -13,6 +14,7 @@ class App extends React.Component {
         <CollectionIndex />
         <TagInput />
         <IndexSpinner />
+        <ValiForm />
       </div>
     );
   }

@@ -13,6 +13,13 @@ import {
   Card
 } from 'react-bootstrap'
 
+import { Formik } from 'formik'
+import * as yup from 'yup';
+
+const schema = yup.object({
+  title: yup.string().required("コレクション名は必須です。")
+})
+
 const getFormData = (title, description, tags, recommends, shops, images) => {
   let formPayLoad = new FormData()
   formPayLoad.append('title', title.value)
@@ -81,100 +88,119 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
   
   
   return (
-    <div className={Styles.formWrapper}>
-              <Form className={Styles.collection}>
-                <Form.Group controlId="formGroupText">
-                  <Form.Label>コレクション名</Form.Label>
-                  <Form.Control
-                    placeholder="30文字以内"
-                    ref={node => { title = node }}
-                  />
-                </Form.Group>
-                <Form.Group controlId="formGroupTextArea">
-                  <Form.Label>説明</Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    placeholder="120文字以内"
-                    rows="3"
-                    ref={node => {description = node}}
-                  />
-                  </Form.Group>
-                  <Form.Group controlId="formGroupTextArea">
-                  <Form.Label>タグ</Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    placeholder="タグの間はスペースを入れてください"
-                    rows="2"
-                    ref={node => {tags = node}}
-                  />
-                </Form.Group>
-                <Accordion defaultActiveKey={1} >
-                  {(ObjectTrio).map((MyObject, i) => (
-                    <Card>
-                      <Card.Header>
-                        <Accordion.Toggle
-                          eventKey={i + 1}
-                          as={Button}
-                          variant="light"
-                          className={Styles.marker}
-                        >
-                          {i === 0 ?
-                            `レコメンド${i + 1} (必須)` :
-                            `レコメンド${i + 1} `
-                          }
-                        </Accordion.Toggle>
-                      </Card.Header>
-                      <Accordion.Collapse eventKey={i + 1}>
-                        <Card.Body>
-                          <Form.Group>
-                            <Form.Label>名前</Form.Label>
-                            <Form.Control
-                              placeholder="30文字以内"
-                              ref={node => { recommends[i].name = node }}
-                            />
-                          </Form.Group>
-                          <Form.Group>
-                            <Form.Label>値段 [円]</Form.Label>
-                            <Form.Control
-                              type="number"
-                              ref={node => { recommends[i].price = node }}
-                            />
-                          </Form.Group>
-                          {MyObject.image}
-                          {MyObject.shop}
-                          
-                        </Card.Body>
-                      </Accordion.Collapse>
-                    </Card>
-                  ))}
-                </Accordion>
-              </Form>
-              <Button
-                  type="button"
-                  className={Styles.submitButton}
-                  onClick={e => {
-                    const formData = getFormData(title, description, tags, recommends, shops, images)
-                    dispatchPostAction(formData)
-                    title.value = ""
-                    description.value = ""
-                    recommends.map(recommend => 
-                      recommend.name.value = recommend.price.value = ""
-                    )
-                    for (let i = 1; i < 4; i++) {
-                      dispatchClearShopList(i)
-                      dispatchClearSelectedShop(i)
-                      dispatchClearPreview(i)
-                    }
-                    dispatchCloseThis()
-                  }}
+    <Formik
+      className={Styles.formWrapper}
+      validationSchema={schema}
+    >
+      {({
+        handleSubmit,
+        handleChange,
+        handleBlur,
+        values,
+        touched,
+        isValid,
+        errors,
+      }) => (
+        <Form className={Styles.collection} noValidate onSubmit={handleSubmit}>
+        <Form.Group controlId="validationFormik06">
+          <Form.Label>コレクション名</Form.Label>
+          <Form.Control
+            name="title"
+            value={values.title}
+            placeholder="30文字以内"
+            onChange={handleChange}
+            ref={node => { title = node }}
+            isInValid={!!errors.title}   
+          />
+          <Form.Control.Feedback type="invalid">
+            {errors.title}
+          </Form.Control.Feedback>  
+        </Form.Group>
+        <Form.Group controlId="formGroupTextArea">
+          <Form.Label>説明</Form.Label>
+          <Form.Control
+            as="textarea"
+            placeholder="120文字以内"
+            rows="3"
+            ref={node => {description = node}}
+          />
+          </Form.Group>
+          <Form.Group controlId="formGroupTextArea">
+          <Form.Label>タグ</Form.Label>
+          <Form.Control
+            as="textarea"
+            placeholder="タグの間はスペースを入れてください"
+            rows="2"
+            ref={node => {tags = node}}
+          />
+        </Form.Group>
+        <Accordion defaultActiveKey={1} >
+          {(ObjectTrio).map((MyObject, i) => (
+            <Card>
+              <Card.Header>
+                <Accordion.Toggle
+                  eventKey={i + 1}
+                  as={Button}
+                  variant="light"
+                  className={Styles.marker}
                 >
-                  投稿!!
-                </Button>
-  
-
-
-    </div>
+                  {i === 0 ?
+                    `レコメンド${i + 1} (必須)` :
+                    `レコメンド${i + 1} `
+                  }
+                </Accordion.Toggle>
+              </Card.Header>
+              <Accordion.Collapse eventKey={i + 1}>
+                <Card.Body>
+                  <Form.Group>
+                    <Form.Label>名前</Form.Label>
+                    <Form.Control
+                      placeholder="30文字以内"
+                      ref={node => { recommends[i].name = node }}
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>値段 [円]</Form.Label>
+                    <Form.Control
+                      type="number"
+                      ref={node => { recommends[i].price = node }}
+                    />
+                  </Form.Group>
+                  {MyObject.image}
+                  {MyObject.shop}
+                  
+                </Card.Body>
+              </Accordion.Collapse>
+            </Card>
+          ))}
+        </Accordion>
+        <Button type="submit">Submit form</Button>
+      </Form>
+      )}
+    </Formik>
   )
 }
 
 export default PostingForm
+
+{/* <Button
+          type="button"
+          className={Styles.submitButton}
+          noValidate onClick={e => {
+            const formData = getFormData(title, description, tags, recommends, shops, images)
+            dispatchPostAction(formData)
+            title.value = ""
+            description.value = ""
+            recommends.map(recommend => 
+              recommend.name.value = recommend.price.value = ""
+            )
+            for (let i = 1; i < 4; i++) {
+              dispatchClearShopList(i)
+              dispatchClearSelectedShop(i)
+              dispatchClearPreview(i)
+            }
+            // dispatchCloseThis()
+          }}   
+        >
+          投稿!!
+        </Button>     */}
