@@ -4,9 +4,6 @@ import * as yup from 'yup';
 import {Form, Col, Button, InputGroup} from 'react-bootstrap'
 
 const schema = yup.object({
-  firstName: yup.string().required(),
-  lastName: yup.string().required(),
-  username: yup.string().required(),
   city: yup.string().required(),
   state: yup.string().required(),
   zip: yup.string().required("入力して〜"),
@@ -18,10 +15,6 @@ function FormExample() {
     <Formik
       validationSchema={schema}
       // onSubmit={console.log}
-      initialValues={{
-        firstName: 'Mark',
-        lastName: 'Otto',
-      }}
     >
       {({
         handleSubmit,
@@ -33,51 +26,6 @@ function FormExample() {
         errors,
       }) => (
         <Form noValidate onSubmit={handleSubmit}>
-          <Form.Row>
-            <Form.Group as={Col} md="4" controlId="validationFormik01">
-              <Form.Label>First name</Form.Label>
-              <Form.Control
-                type="text"
-                name="firstName"
-                value={values.firstName}
-                onChange={handleChange}
-                isValid={touched.firstName && !errors.firstName}
-              />
-              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group as={Col} md="4" controlId="validationFormik02">
-              <Form.Label>Last name</Form.Label>
-              <Form.Control
-                type="text"
-                name="lastName"
-                value={values.lastName}
-                onChange={handleChange}
-                isValid={touched.firstName && !errors.lastName}
-              />
-
-              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group as={Col} md="4" controlId="validationFormikUsername">
-              <Form.Label>Username</Form.Label>
-              <InputGroup>
-                <InputGroup.Prepend>
-                  <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
-                </InputGroup.Prepend>
-                <Form.Control
-                  type="text"
-                  placeholder="Username"
-                  aria-describedby="inputGroupPrepend"
-                  name="username"
-                  value={values.username}
-                  onChange={handleChange}
-                  isInvalid={!!errors.username}
-                />
-                <Form.Control.Feedback type="invalid">
-                  {errors.username}
-                </Form.Control.Feedback>
-              </InputGroup>
-            </Form.Group>
-          </Form.Row>
           <Form.Row>
             <Form.Group as={Col} md="6" controlId="validationFormik03">
               <Form.Label>City</Form.Label>

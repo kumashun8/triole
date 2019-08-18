@@ -108,9 +108,9 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
             name="title"
             value={values.title}
             placeholder="30文字以内"
-            onChange={handleChange}
-            ref={node => { title = node }}
-            isInValid={!!errors.title}   
+            onChange={ console.log(errors)}
+            ref={node => { title = node }} 
+            isInValid= {!!errors.title}
           />
           <Form.Control.Feedback type="invalid">
             {errors.title}
