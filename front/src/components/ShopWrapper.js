@@ -3,11 +3,11 @@ import NewSelectedShop from '../containers/NewSelectedShop'
 import ShopSearchInput from '../containers/ShopSearchInput'
 import PredictedShopList from '../containers/PredictedShopList'
 
-const ShopWrapper = () => (
+const ShopWrapper = i => (
   <div>
-    <NewSelectedShop />
-    <ShopSearchInput />
-    <PredictedShopList />
+    <NewSelectedShop i={i} />
+    <ShopSearchInput i={i} />
+    <PredictedShopList i={i} />
   </div>
 )
 

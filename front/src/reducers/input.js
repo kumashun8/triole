@@ -2,33 +2,39 @@ import { InputStatuses } from '../actions/input';
 import { NewestOf } from '../containers/CollectionPostInput';
 
 const initialState = {
-  inputDatas: {}
+  collection: {
+    title: "",
+    description: "",
+    tags: "",
+    images: [],
+    shops: []
+  }
 };
 
 export default (state = [initialState], action) => {
-  const newDatas = NewestOf(state).inputDatas || {};
+  const newCollection = NewestOf(state).collection || {};
   switch (action.type) {
     case InputStatuses.UPDATE_INPUT:
-      newDatas[action.key] = action.value
+      newCollection[action.key] = action.value
       return [
         ...state,
         {
-          inputDatas: newDatas
+          collection: newCollection
         }
       ]
     case InputStatuses.CLEAR_INPUT:
-      newDatas[action.key] = ""
+      newCollection[action.key] = ""
       return [
         ...state,
         {
-          inputDatas: newDatas
+          collection: newCollection
         }
       ]
     case InputStatuses.CLEAR_ALL_INPUTS:
       return [
         ...state,
         {
-          inputDatas: {}
+          collection: {}
         }
       ]
     default:
