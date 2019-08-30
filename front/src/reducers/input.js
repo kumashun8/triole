@@ -1,18 +1,19 @@
 import { InputStatuses } from '../actions/input';
+import { NewestOf } from '../containers/CollectionPostInput';
 
 const initialState = {
-  inputtedDatas: {}
+  inputDatas: {}
 };
 
 export default (state = [initialState], action) => {
-  const newDatas = state.inputtedDatas || {};
+  const newDatas = NewestOf(state).inputDatas || {};
   switch (action.type) {
     case InputStatuses.UPDATE_INPUT:
       newDatas[action.key] = action.value
       return [
         ...state,
         {
-          inputtedDatas: newDatas
+          inputDatas: newDatas
         }
       ]
     case InputStatuses.CLEAR_INPUT:
@@ -20,14 +21,14 @@ export default (state = [initialState], action) => {
       return [
         ...state,
         {
-          inputtedDatas: newDatas
+          inputDatas: newDatas
         }
       ]
     case InputStatuses.CLEAR_ALL_INPUTS:
       return [
         ...state,
         {
-          inputtedDatas: {}
+          inputDatas: {}
         }
       ]
     default:

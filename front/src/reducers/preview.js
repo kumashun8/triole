@@ -1,6 +1,6 @@
 import { PreviewStatuses } from '../actions/preview'
 
-const defaultImageUrl = "http://placehold.jp/200x200.png"
+export const defaultImageUrl = "http://placehold.jp/200x200.png"
 
 const createObjectURL = (window.URL || window.webkitURL).createObjectURL || window.createObjectURL;
 

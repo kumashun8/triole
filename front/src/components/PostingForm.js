@@ -13,6 +13,7 @@ import {
   Accordion,
   Card
 } from 'react-bootstrap'
+import ImageUploaderContainer from '../containers/ImageUploaderContainer';
 
 const getFormData = (title, description, tags, recommends, shops, images) => {
   let formPayLoad = new FormData()
@@ -86,34 +87,23 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
       <Form className={Styles.collection}>
         <InputContainer
           label="コレクション名"
-          hoge="title"
-          placeholder="30000文字以内"
-        />     
-        <Form.Group controlId="formGroupText">
-          <Form.Label>コレクション名</Form.Label>
-          <Form.Control
-            placeholder="30文字以内"
-            ref={node => { title = node }}
-          />
-        </Form.Group>
-        <Form.Group controlId="formGroupTextArea">
-          <Form.Label>説明</Form.Label>
-          <Form.Control
-            as="textarea"
-            placeholder="120文字以内"
-            rows="3"
-            ref={node => { description = node }}
-          />
-        </Form.Group>
-        <Form.Group controlId="formGroupTextArea">
-          <Form.Label>タグ</Form.Label>
-          <Form.Control
-            as="textarea"
-            placeholder="タグの間はスペースを入れてください"
-            rows="2"
-            ref={node => { tags = node }}
-          />
-        </Form.Group>
+          name="title"
+          placeholder="30文字以内"
+        />
+        <InputContainer
+          label="説明"
+          name="description"
+          placeholder="120文字以内"
+          rows="3"
+          as="textarea"
+        />
+        <InputContainer
+          label="タグ"
+          name="tags"
+          placeholder="例) #天神 #パンケーキ"
+          rows="2"
+          as="textarea"
+        />
         <Accordion defaultActiveKey={1} >
           {(ObjectTrio).map((MyObject, i) => (
             <Card>
@@ -132,23 +122,19 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
               </Card.Header>
               <Accordion.Collapse eventKey={i + 1}>
                 <Card.Body>
-                  <Form.Group>
-                    <Form.Label>名前</Form.Label>
-                    <Form.Control
-                      placeholder="30文字以内"
-                      ref={node => { recommends[i].name = node }}
-                    />
-                  </Form.Group>
-                  <Form.Group>
-                    <Form.Label>値段 [円]</Form.Label>
-                    <Form.Control
-                      type="number"
-                      ref={node => { recommends[i].price = node }}
-                    />
-                  </Form.Group>
-                  {MyObject.image}
-                  {MyObject.shop}
-                          
+                  <InputContainer
+                    label="名前"
+                    name={`reco_name_${i + 1}`}
+                    placeholder="30文字以内"
+                  />
+                  <InputContainer
+                    label="値段 [円]"
+                    name={`reco_price_${i + 1}`}
+                    type="number"
+                  />
+                  <ImageUploaderContainer i={i} name={`reco_image_${i + 1}`} />
+                  {/* {MyObject.image} */}
+                  {MyObject.shop}       
                 </Card.Body>
               </Accordion.Collapse>
             </Card>
