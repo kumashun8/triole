@@ -7,7 +7,6 @@ import { closeForm } from '../actions/form'
 import PostingForm from '../components/PostingForm'
 
 export const NewestOf = (state) => {
-  console.log(state);
   const length = state.length;
   return state[length - 1];
 };

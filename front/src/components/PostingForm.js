@@ -134,7 +134,7 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
                   />
                   <ImageUploaderContainer i={i} name={`reco_image_${i + 1}`} />
                   {/* {MyObject.image} */}
-                  {MyObject.shop}       
+                  {/* {MyObject.shop}        */}
                 </Card.Body>
               </Accordion.Collapse>
             </Card>
