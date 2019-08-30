@@ -5,12 +5,12 @@ const initialState = {
 };
 
 export default (state = [initialState], action) => {
-  const newDatas = state.inputtedDatas;
+  const newDatas = state.inputtedDatas || {};
   switch (action.type) {
     case InputStatuses.UPDATE_INPUT:
       newDatas[action.key] = action.value
       return [
-        ...state, 
+        ...state,
         {
           inputtedDatas: newDatas
         }
@@ -18,18 +18,19 @@ export default (state = [initialState], action) => {
     case InputStatuses.CLEAR_INPUT:
       newDatas[action.key] = ""
       return [
-        ...state, 
+        ...state,
         {
           inputtedDatas: newDatas
         }
       ]
     case InputStatuses.CLEAR_ALL_INPUTS:
       return [
-        ...state, 
+        ...state,
         {
           inputtedDatas: {}
         }
       ]
     default:
+      return state
   }
-} 
+};

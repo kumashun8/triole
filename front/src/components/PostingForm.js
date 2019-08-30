@@ -5,6 +5,7 @@ import ShopWrapper3 from './ShopWrapper3'
 import ImageUploader1 from '../containers/ImageUploader1'
 import ImageUploader2 from '../containers/ImageUploader2'
 import ImageUploader3 from '../containers/ImageUploader3'
+import InputContainer from '../containers/InputContainer';
 import Styles from '../styles/components/postingForm.module.scss'
 import {
   Form,
@@ -44,7 +45,7 @@ const findPrefecture = (address) => {
   return ""
 }
 
-const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearSelectedShop, dispatchClearPreview, dispatchCloseThis, shops, images}) => {
+const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearSelectedShop, dispatchClearPreview, dispatchCloseThis, shops, images }) => {
   let title, description, tags
   let recommends = [
     {
@@ -82,99 +83,101 @@ const PostingForm = ({ dispatchPostAction, dispatchClearShopList, dispatchClearS
   
   return (
     <div className={Styles.formWrapper}>
-              <Form className={Styles.collection}>
-                <Form.Group controlId="formGroupText">
-                  <Form.Label>コレクション名</Form.Label>
-                  <Form.Control
-                    placeholder="30文字以内"
-                    ref={node => { title = node }}
-                  />
-                </Form.Group>
-                <Form.Group controlId="formGroupTextArea">
-                  <Form.Label>説明</Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    placeholder="120文字以内"
-                    rows="3"
-                    ref={node => {description = node}}
-                  />
-                  </Form.Group>
-                  <Form.Group controlId="formGroupTextArea">
-                  <Form.Label>タグ</Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    placeholder="タグの間はスペースを入れてください"
-                    rows="2"
-                    ref={node => {tags = node}}
-                  />
-                </Form.Group>
-                <Accordion defaultActiveKey={1} >
-                  {(ObjectTrio).map((MyObject, i) => (
-                    <Card>
-                      <Card.Header>
-                        <Accordion.Toggle
-                          eventKey={i + 1}
-                          as={Button}
-                          variant="light"
-                          className={Styles.marker}
-                        >
-                          {i === 0 ?
-                            `レコメンド${i + 1} (必須)` :
-                            `レコメンド${i + 1} `
-                          }
-                        </Accordion.Toggle>
-                      </Card.Header>
-                      <Accordion.Collapse eventKey={i + 1}>
-                        <Card.Body>
-                          <Form.Group>
-                            <Form.Label>名前</Form.Label>
-                            <Form.Control
-                              placeholder="30文字以内"
-                              ref={node => { recommends[i].name = node }}
-                            />
-                          </Form.Group>
-                          <Form.Group>
-                            <Form.Label>値段 [円]</Form.Label>
-                            <Form.Control
-                              type="number"
-                              ref={node => { recommends[i].price = node }}
-                            />
-                          </Form.Group>
-                          {MyObject.image}
-                          {MyObject.shop}
-                          
-                        </Card.Body>
-                      </Accordion.Collapse>
-                    </Card>
-                  ))}
-                </Accordion>
-              </Form>
-              <Button
-                  type="button"
-                  className={Styles.submitButton}
-                  onClick={e => {
-                    const formData = getFormData(title, description, tags, recommends, shops, images)
-                    dispatchPostAction(formData)
-                    title.value = ""
-                    description.value = ""
-                    recommends.map(recommend => 
-                      recommend.name.value = recommend.price.value = ""
-                    )
-                    for (let i = 1; i < 4; i++) {
-                      dispatchClearShopList(i)
-                      dispatchClearSelectedShop(i)
-                      dispatchClearPreview(i)
-                    }
-                    dispatchCloseThis()
-                  }}
+      <Form className={Styles.collection}>
+        <InputContainer
+          label="コレクション名"
+          hoge="title"
+          placeholder="30000文字以内"
+        />     
+        <Form.Group controlId="formGroupText">
+          <Form.Label>コレクション名</Form.Label>
+          <Form.Control
+            placeholder="30文字以内"
+            ref={node => { title = node }}
+          />
+        </Form.Group>
+        <Form.Group controlId="formGroupTextArea">
+          <Form.Label>説明</Form.Label>
+          <Form.Control
+            as="textarea"
+            placeholder="120文字以内"
+            rows="3"
+            ref={node => { description = node }}
+          />
+        </Form.Group>
+        <Form.Group controlId="formGroupTextArea">
+          <Form.Label>タグ</Form.Label>
+          <Form.Control
+            as="textarea"
+            placeholder="タグの間はスペースを入れてください"
+            rows="2"
+            ref={node => { tags = node }}
+          />
+        </Form.Group>
+        <Accordion defaultActiveKey={1} >
+          {(ObjectTrio).map((MyObject, i) => (
+            <Card>
+              <Card.Header>
+                <Accordion.Toggle
+                  eventKey={i + 1}
+                  as={Button}
+                  variant="light"
+                  className={Styles.marker}
                 >
-                  投稿!!
-                </Button>
-  
-
-
+                  {i === 0 ?
+                    `レコメンド${i + 1} (必須)` :
+                    `レコメンド${i + 1} `
+                  }
+                </Accordion.Toggle>
+              </Card.Header>
+              <Accordion.Collapse eventKey={i + 1}>
+                <Card.Body>
+                  <Form.Group>
+                    <Form.Label>名前</Form.Label>
+                    <Form.Control
+                      placeholder="30文字以内"
+                      ref={node => { recommends[i].name = node }}
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>値段 [円]</Form.Label>
+                    <Form.Control
+                      type="number"
+                      ref={node => { recommends[i].price = node }}
+                    />
+                  </Form.Group>
+                  {MyObject.image}
+                  {MyObject.shop}
+                          
+                </Card.Body>
+              </Accordion.Collapse>
+            </Card>
+          ))}
+        </Accordion>
+      </Form>
+      <Button
+        type="button"
+        className={Styles.submitButton}
+        onClick={e => {
+          const formData = getFormData(title, description, tags, recommends, shops, images)
+          dispatchPostAction(formData)
+          title.value = ""
+          description.value = ""
+          recommends.map(recommend =>
+            recommend.name.value = recommend.price.value = ""
+          )
+          for (let i = 1; i < 4; i++) {
+            dispatchClearShopList(i)
+            dispatchClearSelectedShop(i)
+            dispatchClearPreview(i)
+          }
+          dispatchCloseThis()
+        }}
+      >
+        投稿!!
+      </Button>
     </div>
   )
-}
+};
 
 export default PostingForm

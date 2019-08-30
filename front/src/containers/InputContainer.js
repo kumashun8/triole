@@ -3,7 +3,7 @@ import { updateInput } from '../actions/input';
 import { NewestOf } from './CollectionPostInput';
 import Input from '../components/Input';
 
-const mapStateToProps = (state, [ownProps]) => ({
+const mapStateToProps = state => ({
   inputedDatas: NewestOf(state.input).inputedDatas
 });
 
