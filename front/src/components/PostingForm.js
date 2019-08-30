@@ -29,8 +29,10 @@ const getFormData = (title, description, tags, recommends, shops, images) => {
     }
     return 0
   })
+  const sample = JSON.stringify( { name: "user", age: 10 })
+  formPayLoad.append('sample', sample)
   return formPayLoad
-}
+};
 
 const findPrefecture = (address) => {
   if (address) {

@@ -2,6 +2,7 @@ module Api
   module V1
     class CollectionsController < ApplicationController
       def create
+        p params[:sample][:user]
         @collection = Collection.create(
           title: params[:title],
           description: params[:description]

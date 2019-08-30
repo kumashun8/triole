@@ -22,6 +22,7 @@ export const postCollectionFaiue = (error) => ({
 })
 
 export const postCollection = (collection) => {
+  console.log(collection)
   return (dispatch) => {
     dispatch(postCollectionRequest())
     return axios.post(API_URI + '/api/v1/collections/',

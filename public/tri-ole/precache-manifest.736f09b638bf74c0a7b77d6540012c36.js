@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "021e2a71a2dd5cdc8f4d14a8c7448505",
+    "revision": "64cce906bca869740c62263b9c9c8e52",
     "url": "/tri-ole/index.html"
   },
   {
-    "revision": "a6b941ccb266c888b22a",
+    "revision": "2ab3e3d9ebc273e103bf",
     "url": "/tri-ole/static/css/main.ae41b7e1.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/tri-ole/static/js/2.8d5ad04b.chunk.js"
   },
   {
-    "revision": "a6b941ccb266c888b22a",
-    "url": "/tri-ole/static/js/main.d1ab9813.chunk.js"
+    "revision": "2ab3e3d9ebc273e103bf",
+    "url": "/tri-ole/static/js/main.8fd6c6b0.chunk.js"
   },
   {
     "revision": "7a105e6905e2ecb1c692",
