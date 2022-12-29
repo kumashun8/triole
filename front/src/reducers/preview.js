@@ -1,6 +1,6 @@
 import { PreviewStatuses } from '../actions/preview'
 
-const defaultImageUrl = "http://placehold.jp/200x200.png"
+export const defaultImageUrl = "http://placehold.jp/200x200.png"
 
 const createObjectURL = (window.URL || window.webkitURL).createObjectURL || window.createObjectURL;
 
@@ -39,10 +39,12 @@ const previews = (state = [initialState], action) => {
         }
       ]
     case PreviewStatuses.CLEAR_PREVIEW:
+      console.log("clear")
       newImages[action.index] = {
         file: {},
         url: defaultImageUrl
       }
+      console.log(newImages)
       return [
         ...state,
         {

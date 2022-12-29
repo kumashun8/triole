@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import ActiveTagList from '../containers/ActiveTagList'
 import Styles from '../styles/components/collection.module.scss'
 import { Image } from 'react-bootstrap'
 
@@ -26,6 +27,7 @@ const Collection = ({ collection }) => (
           rounded />
       </div>   
     ))}
+    <ActiveTagList tags={collection.tags}/>
   </div>
   
 )

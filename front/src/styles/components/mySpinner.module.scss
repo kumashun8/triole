@@ -1,0 +1,9 @@
+@import '../../variables/variables';
+
+.mySpinner {
+  color: $accent;
+  margin: 24px auto;
+  &_hide {
+    display: none;
+  }
+}

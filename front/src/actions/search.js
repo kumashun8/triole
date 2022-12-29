@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { API_URI } from './index'
 
 export const SearchStatuses = {
   GET_SHOP_LIST_REQUEST: 'GET_SHOP_LIST_REQUEST',
@@ -36,9 +37,9 @@ export const clearShopList = (index) => ({
 export const getShopList = (text, index) => {
   return (dispatch) => {
     dispatch(getShopListRequest())
-    return axios.get(process.env.REACT_APP_API_URI + '/api/v1/search/' + text)
+    console.log(typeof(text))
+    return axios.get(API_URI + '/api/v1/search/' + text)
       .then(res => {
-        console.log(res.data.predictions)
         dispatch(getShopListSuccess(res.data.predictions, index))
       }
       ).catch(err => 

@@ -7,9 +7,9 @@ import { closeForm } from '../actions/form'
 import PostingForm from '../components/PostingForm'
 
 export const NewestOf = (state) => {
-  const length = state.length
-  return state[length - 1]
-}
+  const length = state.length;
+  return state[length - 1];
+};
 
 const mapStateToProps = state => ({
   collection: NewestOf(state.post).collection,

@@ -10,14 +10,30 @@ import {
   Card
 } from 'react-bootstrap'
 
-const CollectionList = ({ collections }) => {
+const convertSpaceToHash = (tags = "") => {
+  if (tags === "") {
+    return ""
+  }
+  const newTags = tags.split(' ')
+  if (newTags.length === 1) {
+    return `#${newTags[0]}`
+  }
+
+  const formattedTags = newTags.map(tag => (
+    tag === '' ? '#' : tag
+  ))
+  return formattedTags.join('')
+}
+
+const CollectionList = ({ collections, tag }) => {
   if (collections === void 0) {
     return(<div></div>)
   } 
 
   return (
-    <div>
+    <div width="100vw">
       <Headline title="コレクション一覧" />
+      <Headline title={convertSpaceToHash(tag)} />
       <Accordion className={Styles.collectionList}>
         {collections.map((collection, index) => (
           <Card>

@@ -7,54 +7,21 @@ import ShopCancellButton from '../containers/ShopCancellButton'
 import ShopCancellButton2 from '../containers/ShopCancellButton2'
 import ShopCancellButton3 from '../containers/ShopCancellButton3'
 
-const SelectedShop = ({ selectedShop, index }) => {
-  console.log(selectedShop)
-  let buttons
-  if (Object.keys(selectedShop).length === 0) {
-    return <div></div>
-  }
-  switch (index) {
-    case 1:
-      buttons = (
-        <div>
-          <ShopCancellButton />
-          <ShopOkuButton />
-        </div>
-      )
-      break
-    case 2:
-      buttons = (
-        <div>
-          <ShopCancellButton2 />
-          <ShopOkuButton2 />
-        </div>
-      )
-      break
-    case 3:
-      buttons = (
-        <div>
-          <ShopCancellButton3 />
-          <ShopOkuButton3 />
-        </div>
-      )
-      break
-    default:
-      buttons = (<div></div>)
-      break
-  }
-  return (
+const SelectedShop = ({ shops, i }) => (
+  <>
+    <a
+      href={shops[i].url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {shops[i].name}
+    </a>
     <div>
-      <a
-        href={selectedShop.url}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {selectedShop.name}
-      </a>
-      {buttons}
+      <ShopCancellButton />
+      <ShopOkuButton />
     </div>
-  )
-}
+  </>
+);
 
 SelectedShop.propTypes = {
   selectedShop:　PropTypes.shape({

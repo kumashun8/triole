@@ -7,7 +7,7 @@
   .recommend {
     display: flex;
     justify-content: space-between;
-    padding: 40px;
+    padding: 40px 40px 16px;
     &_text {
       width: 416px;
       &_name {
@@ -53,23 +53,23 @@
     padding: 0;
     .recommend {
       flex-direction: column;
-      padding: 24px;
+      padding: 24px 24px 8px;
       &_text {
         width: 240px;
-        &_name {
-          font-size: 1rem;
-          line-height: 1.4rem;
-          margin: 0;
-        }
+        // &_name {
+        //   font-size: 1rem;
+        //   line-height: 1.4rem;
+        //   margin: 0;
+        // }
         &_price {
-          font-size: 0.8rem;
-          line-height: 1rem;
-          margin: 0;
+          // font-size: 0.8rem;
+          // line-height: 1rem;
+          margin-bottom: 8px;
         }
-        &_shop {
-          font-size: 0.8rem;
-          line-height: 1rem;
-        }
+        // &_shop {
+        //   font-size: 0.8rem;
+        //   line-height: 1rem;
+        // }
       }
       &_image {
         width: 200px;

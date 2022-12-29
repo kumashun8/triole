@@ -9,7 +9,7 @@ import {
 
 
 
-const MyModal = ({ dispatchOpen, dispatchClose, dispatchScrolling, dispatchNotScrolling, show, isScrolling }) => {
+const MyModal = ({ dispatchOpen, dispatchClose, dispatchScrolling, dispatchNotScrolling, dispatchClear,show, isScrolling }) => {
   let timeoutId;
 
   window.addEventListener("scroll", () => {
@@ -20,17 +20,21 @@ const MyModal = ({ dispatchOpen, dispatchClose, dispatchScrolling, dispatchNotSc
     }, 500)
   })
 
-  console.log(isScrolling)
   return (
     <div className={Styles.myModal}>
       <Button
-        onClick={e => { dispatchOpen() }}
+        onClick={e => {
+          dispatchOpen()
+          for (let i = 0; i < 3; i++) {
+            dispatchClear(i)
+          }
+        }}
         className={ isScrolling ?
           Styles.myModal_openButton_disable :
           Styles.myModal_openButton
         }
       >
-        <i class="fas fa-plus"></i>
+        <i className="fas fa-plus"></i>
       </Button>
       <Modal show={show} onHide={e => { dispatchClose() }}>
         <Modal.Header

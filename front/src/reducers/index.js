@@ -21,6 +21,7 @@ const index = (state = [initialState], action) => {
         {
           isFetching: false,
           collections: action.collections,
+          tag: action.tag,
           lastUpdated: action.recievedAt
         }
       ]

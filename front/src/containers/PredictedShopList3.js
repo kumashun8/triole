@@ -7,7 +7,7 @@ const mapStateToProps = state => {
   const currentState = state.shopList[length - 1]
   // console.log(state)
   return {
-    shops: currentState.items[2]
+    shops: currentState.items[2] ? currentState.items[2] : []
   }
 }
 

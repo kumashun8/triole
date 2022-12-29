@@ -22,6 +22,6 @@ module Triole
     config.load_defaults 5.2
     config.api_only = true
 
-    config.x.cors_allowed_origins = ENV.fetch('CORS_ALLOWED_ORIGINS', ENV['CLIENT_URI'])
+    # config.x.cors_allowed_origins = ENV.fetch('CORS_ALLOWED_ORIGINS', ENV['CLIENT_URI'])
   end
 end
