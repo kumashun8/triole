@@ -1,0 +1,23 @@
+@import '../../variables/variables';
+
+.enter {
+  margin: 8px 8px 8px 0;
+  background-color: $main;
+  border: 2px solid $main;
+  &:hover {
+    color: $main;
+    background-color: $white;
+    border: 2px solid $main;
+  }
+}
+
+.cancel {
+  margin: 8px 8px 8px 0;
+  background-color: $accent;
+  border: 2px solid $accent;
+  &:hover {
+    color: $accent;
+    background-color: $white;
+    border: 2px solid $accent;
+  }
+}

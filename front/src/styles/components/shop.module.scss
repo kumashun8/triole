@@ -1,0 +1,12 @@
+@import '../../variables/variables';
+
+.shop {
+  cursor: pointer;
+  list-style: none;
+  margin-bottom: 16px;
+  margin-left: -1.6rem;
+  &_address {
+    font-size: 0.8rem;
+    color: $dark-gray;
+  }
+}

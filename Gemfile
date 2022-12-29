@@ -31,6 +31,12 @@ gem 'rack-cors'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # rail c の出力形式を変えるため
+  gem 'hirb'
+  gem 'hirb-unicode'
+  gem 'pry-rails'  # rails console(もしくは、rails c)でirbの代わりにpryを使われる
+  gem 'pry-doc'    # methodを表示
+  gem 'pry-byebug' # デバッグを実施
 end
 
 group :development do
@@ -43,3 +49,14 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# 環境変数を使うため
+gem 'dotenv-rails'
+
+# 画像投稿のため
+gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
+gem 'rmagick', require: 'rmagick'
+gem 'fog-aws'
+
+# タグ付け
+gem 'acts-as-taggable-on', '~> 6.0'
