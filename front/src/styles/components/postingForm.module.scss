@@ -1,0 +1,50 @@
+@import '../../variables/variables';
+
+.formWrapper {
+  width: 456px;
+  margin: 0 auto;
+  .collection {
+    &_description {
+      display: block;
+      height: 5rem;
+    }
+    &_recommend {
+      display: flex;
+      width: 100%;
+      &_name {
+        padding-right: 40px;
+      }
+    }
+  }
+
+  .marker {
+    color: $main;
+    font-weight: $bold-weight;
+    margin: -1rem;
+    height: 40px;
+    width: 75%;
+    text-align: left;
+    
+  }
+
+  .submitButton {
+    position: relative;
+    left: calc(100% - 80px);
+    width: 80px;
+    height: 40px;
+    margin: 24px 0 8px;
+    color: $white;
+    background-color: $main;
+    font-size: 1rem;
+    font-weight: $bold-weight;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .formWrapper {
+    width: 280px;
+  }
+}

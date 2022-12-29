@@ -1,0 +1,26 @@
+@import '../../variables/variables';
+
+.header {
+  height: 120px;
+  width: 100vw;
+  background-color: $main;
+  &_menu {
+    text-align: center;
+    &_home {
+      width: 200px;
+      padding-top: 24px;
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .header {
+    height: 80px;
+    &_menu {
+      &_home {
+        width: 120px;
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@import '../../variables/variables';
+
+.preview {
+  &_image {
+    margin-top: 8px;
+    width: 200px;
+    height: 200px;
+  }
+  &_clearButton {
+    position: relative;
+    left: 8px;
+    top: 84px;
+    background-color: $accent;
+    border: solid 2px $accent;
+    &:hover {
+      background-color: darken($accent, 10);
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .preview {
+    &_input {
+      font-size: 0.8rem;
+    }
+    &_clearButton {
+      top: 8px;
+      left: 124px;
+      margin-bottom: 16px;
+    }
+  }
+}

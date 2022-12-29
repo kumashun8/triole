@@ -1,0 +1,26 @@
+@import '../../variables/variables';
+
+.collectionList {
+  padding-left: 0;
+  margin: 0 auto;
+  width: 800px;
+}
+
+@media screen and (max-width: 768px) {
+  .collectionList {
+    width: 90vw;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .headerWrapper {
+    padding: .75rem;
+  }
+  .toggle {
+    height: 120px;
+    margin: 0;
+  }
+}
+
+
+
