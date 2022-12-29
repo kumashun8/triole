@@ -7,7 +7,6 @@ const initialState = {
 const window = (state = [initialState], action) => {
   switch (action.type) {
     case WindowStatuses.IS_SCROLLING:
-      console.log("isScrolling")
       return [
         ...state,
         {
@@ -15,7 +14,6 @@ const window = (state = [initialState], action) => {
         }
       ]
     case WindowStatuses.IS_NOT_SCROLLING:
-      console.log("isNotScrolling")
       return [
         ...state,
         {

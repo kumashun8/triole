@@ -3,7 +3,9 @@ import { getShopList } from '../actions/search'
 import SearchInput from '../components/SearchInput'
 
 const mapStateToProps = state => ({
-  index: 3
+  index: 3,
+  label: "お店",
+  placeholder: "お店を検索"
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -6,7 +6,14 @@ CarrierWave.configure do |config|
     aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
     region: ENV['AWS_REGION'],
   }
-  config.fog_directory = ENV['AWS_S3_BUCKET']
+
+  case Rails.env
+  when 'production'
+    config.fog_directory = ENV['AWS_S3_BUCKET']
+  when 'development'
+    config.fog_directory = ENV['AWS_S3_BUCKET_DEV']
+  end
+  
 end
  
 CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/

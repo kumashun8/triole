@@ -1,11 +1,12 @@
 import { connect } from 'react-redux'
 import CollectionList from '../components/CollectionList'
+import { NewestOf } from './CollectionPostInput'
 
 const mapStateToProps = state => {
-  const length = state.index.length
-  const currentState = state.index[length - 1]
+  const newIndex = NewestOf(state.index)
   return {
-    collections: currentState.collections
+    collections: newIndex.collections,
+    tag: newIndex.tag
   }
 }
 

@@ -39,10 +39,12 @@ const previews = (state = [initialState], action) => {
         }
       ]
     case PreviewStatuses.CLEAR_PREVIEW:
+      console.log("clear")
       newImages[action.index] = {
         file: {},
         url: defaultImageUrl
       }
+      console.log(newImages)
       return [
         ...state,
         {

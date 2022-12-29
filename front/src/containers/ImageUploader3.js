@@ -5,7 +5,6 @@ import ImageUploader from '../components/ImageUploader'
 const mapStateToProps = state => {
   const length = state.previews.length
   const currentState = state.previews[length - 1]
-  console.log(currentState)
   return {
     images: currentState.images[2],
     i: 2
